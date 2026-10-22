@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="640" viewBox="0 0 1024 640" fill="none">
+  <defs>
+    <linearGradient id="background" x1="76" y1="36" x2="948" y2="610" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFEFF"/>
+      <stop offset="1" stop-color="#EAF2F4"/>
+    </linearGradient>
+    <linearGradient id="brandGlow" x1="450" y1="0" x2="575" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="0" y="0" width="1024" height="640" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity=".07"/>
+    </filter>
+    <style>
+      .portfolio-label { font: 500 16px Arial, Helvetica, sans-serif; fill: #263546; }
+      .brand { font-family: Arial, Helvetica, sans-serif; font-weight: 800; letter-spacing: -.7px; }
+      .lane { fill: #FFFFFF; fill-opacity: .78; stroke-width: 4; }
+    </style>
+  </defs>
+
+  <rect width="1024" height="640" rx="18" fill="url(#background)"/>
+
+  <!-- Quiet technical linework in the background -->
+  <g stroke="#B8C9CE" stroke-opacity=".22" stroke-width="1">
+    <path d="M0 140 187 0M0 218 292 0M0 555 435 0M1024 116 850 0M1024 205 754 0M1024 622 440 38M1024 550 566 0"/>
+    <path d="M0 470 333 640M0 574 128 640M1024 420 768 640M1024 518 872 640"/>
+  </g>
+  <g fill="#FFFFFF" fill-opacity=".6">
+    <path d="m85 43 4 9 9 4-9 4-4 9-4-9-9-4 9-4 4-9ZM937 480l5 12 12 5-12 5-5 12-5-12-12-5 12-5 5-12Z"/>
+  </g>
+
+  <!-- Fine central glow behind the connected partner marks -->
+  <rect x="424" y="40" width="176" height="510" fill="url(#brandGlow)"/>
+
+  <!-- Product portfolio lanes -->
+  <g filter="url(#softShadow)">
+    <rect class="lane" x="58" y="58" width="366" height="52" rx="10" stroke="#D78C4A"/>
+    <rect class="lane" x="600" y="58" width="366" height="52" rx="10" stroke="#81518F"/>
+
+    <rect class="lane" x="58" y="130" width="366" height="52" rx="10" stroke="#3B7380"/>
+    <rect class="lane" x="58" y="202" width="366" height="52" rx="10" stroke="#36727C"/>
+    <rect class="lane" x="600" y="202" width="366" height="52" rx="10" stroke="#559DB0"/>
+
+    <rect class="lane" x="600" y="274" width="366" height="52" rx="10" stroke="#79AE78"/>
+
+    <rect class="lane" x="58" y="346" width="366" height="52" rx="10" stroke="#B94D4B"/>
+    <rect class="lane" x="600" y="346" width="366" height="52" rx="10" stroke="#BA5552"/>
+
+    <rect class="lane" x="58" y="418" width="366" height="52" rx="10" stroke="#D5A944"/>
+    <rect class="lane" x="600" y="418" width="366" height="52" rx="10" stroke="#D4B442"/>
+
+    <rect class="lane" x="58" y="490" width="366" height="52" rx="10" stroke="#4B8992"/>
+    <rect class="lane" x="600" y="490" width="366" height="52" rx="10" stroke="#4B8992"/>
+  </g>
+
+  <!-- Interlocking colored partner rings -->
+  <g fill="none" stroke-width="9" opacity=".94">
+    <ellipse cx="512" cy="105" rx="59" ry="36" stroke="#E16F3B"/>
+    <ellipse cx="512" cy="146" rx="59" ry="36" stroke="#7F4D8B"/>
+    <ellipse cx="512" cy="201" rx="59" ry="36" stroke="#2E7788"/>
+    <ellipse cx="512" cy="273" rx="59" ry="36" stroke="#78A957"/>
+    <ellipse cx="512" cy="345" rx="59" ry="36" stroke="#C13F48"/>
+    <ellipse cx="512" cy="417" rx="59" ry="36" stroke="#85B949"/>
+    <ellipse cx="512" cy="489" rx="59" ry="36" stroke="#317E8B"/>
+  </g>
+
+  <!-- Brand names, centered over the connecting rings -->
+  <g text-anchor="middle" dominant-baseline="middle">
+    <text x="512" y="104" class="brand" font-size="26" fill="#D8612A">LAPP</text>
+    <text x="512" y="157" class="brand" font-size="22" fill="#1473A5">EATON</text>
+    <text x="512" y="210" class="brand" font-size="17" fill="#B92D36">HAVELLS</text>
+    <text x="512" y="282" class="brand" font-size="17" fill="#B92D36">HAVELLS</text>
+    <text x="512" y="354" class="brand" font-size="23" fill="#1686A5">hager</text>
+    <text x="512" y="426" class="brand" font-size="16" fill="#253342">LUMINIS</text>
+    <text x="512" y="498" class="brand" font-size="16" fill="#182333">MENNEKES</text>
+  </g>
+
+  <!-- Portfolio descriptions -->
+  <g class="portfolio-label" text-anchor="middle">
+    <text x="240" y="80"><tspan x="240">Comprehensive Range of Electrical</tspan><tspan x="240" dy="19">Cables &amp; Connectors</tspan></text>
+    <text x="784" y="80"><tspan x="784">Medium Voltage Switchgear &amp;</tspan><tspan x="784" dy="19">Low Voltage Control Systems</tspan></text>
+
+    <text x="240" y="152"><tspan x="240">Indoor LED Lighting</tspan><tspan x="240" dy="19">Luminaires &amp; Drivers</tspan></text>
+    <text x="240" y="224"><tspan x="240">LV Switchboard Components</tspan><tspan x="240" dy="19">&amp; Enclosures</tspan></text>
+    <text x="784" y="224"><tspan x="784">Explosion-proof Lighting Fixtures</tspan><tspan x="784" dy="19">&amp; Gear</tspan></text>
+
+    <text x="784" y="296"><tspan x="784">Industrial Plugs, Sockets</tspan><tspan x="784" dy="19">&amp; Interlocks</tspan></text>
+
+    <text x="240" y="368"><tspan x="240">Modular Wiring Systems &amp;</tspan><tspan x="240" dy="19">Cable Management</tspan></text>
+    <text x="784" y="368"><tspan x="784">Industrial Wiring &amp;</tspan><tspan x="784" dy="19">Cable Distribution</tspan></text>
+
+    <text x="240" y="440"><tspan x="240">Cable Glands, Ties</tspan><tspan x="240" dy="19">&amp; Accessories</tspan></text>
+    <text x="784" y="440"><tspan x="784">Cable Management</tspan><tspan x="784" dy="19">Systems</tspan></text>
+
+    <text x="240" y="512"><tspan x="240">Lightning Protection &amp;</tspan><tspan x="240" dy="19">Surge Arresters</tspan></text>
+    <text x="784" y="512"><tspan x="784">Earthing &amp; Grounding</tspan><tspan x="784" dy="19">Equipment</tspan></text>
+  </g>
+
+  <text x="512" y="592" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#1E293B">
+    Authorized <tspan font-weight="700">Multi-Brand</tspan> Integrated Product Supply Network - Complete Portfolio
+  </text>
+</svg>
