@@ -72,28 +72,31 @@ export const AboutView: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Full-width profile banner */}
-      <section className="relative isolate min-h-[260px] overflow-hidden bg-[#202538] sm:min-h-[310px]">
+      <section className="relative isolate min-h-[260px] overflow-hidden bg-[#F0F7FF] border-b border-slate-200 sm:min-h-[310px]">
         <img
           src={industrialCablesHero}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[center_42%] opacity-65 mix-blend-luminosity"
+          className="absolute inset-0 h-full w-full object-cover object-[center_42%] opacity-50"
         />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={industrialCablesHero}
-          aria-hidden="true"
-          className="about-hero-video absolute inset-0 h-full w-full object-cover object-[center_42%] mix-blend-luminosity"
-        >
-          <source src="/assets/video/demo3.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#171b30] via-[#202538]/90 to-[#202538]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#171b30]/50 via-transparent to-transparent" />
+       ```tsx
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  aria-hidden="true"
+  className="about-hero-video absolute inset-0 h-full w-full object-cover object-[center_42%] brightness-[0.65]"
+>
+  <source src="/assets/video/demo3.mp4" type="video/mp4" />
+</video>
 
+<div className="absolute inset-0 bg-slate-950/20" />
+```
+
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
+        
         <div className="relative mx-auto flex min-h-[260px] max-w-7xl items-center px-4 py-8 sm:min-h-[310px] sm:px-6 sm:py-10 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -101,32 +104,32 @@ export const AboutView: React.FC = () => {
             transition={{ duration: 0.65, ease: 'easeOut' }}
             className="max-w-3xl"
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90 shadow-lg backdrop-blur-md">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-900 shadow-lg backdrop-blur-md">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-red-400" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
               </span>
               Corporate profile · Since 2008
             </div>
-            <h1 className="text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               About Siddhi Kabel
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-200 sm:text-base sm:leading-7">
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-700 sm:text-base sm:leading-7">
               A dependable partner for industrial electrical, automation and safety solutions.
             </p>
-            <div className="mt-6 h-1 w-20 origin-left rounded-full bg-gradient-to-r from-[#C81E27] to-rose-300" />
+            <div className="mt-6 h-1 w-20 origin-left rounded-full bg-[#F43F5E]" />
           </motion.div>
         </div>
       </section>
 
       {/* Company overview and authorized partner network */}
-      <section className="relative overflow-hidden py-9 sm:py-11 lg:py-14">
+      <section className="relative overflow-hidden py-9 sm:py-8 lg:py-14">
         <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-rose-100/50 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-5 flex items-center gap-2 text-xs font-medium text-slate-500">
             <span>Home</span>
             <ChevronRight className="h-3 w-3" />
-            <span className="font-semibold text-[#C81E27]">About us</span>
+            <span className="font-semibold text-blue-600">About us</span>
           </div>
 
           <div className="grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
@@ -138,14 +141,14 @@ export const AboutView: React.FC = () => {
               data-live-card
               className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/[0.045] sm:p-7 lg:col-span-7 lg:p-8"
             >
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-red-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.17em] text-[#C81E27]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C81E27]" />
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.17em] text-blue-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F43F5E]" />
                 Who we are
               </div>
-              <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#232742] sm:text-4xl">
+              <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#0B2F5B] sm:text-4xl">
                 Connecting industry with the products it relies on.
               </h2>
-              <div className="my-6 h-1 w-16 rounded-full bg-[#C81E27]" />
+              <div className="my-6 h-1 w-16 rounded-full bg-[#F43F5E]" />
 
               <div className="space-y-4 text-sm leading-7 text-slate-600 sm:text-[15px]">
                 <p className="font-semibold text-slate-800">
@@ -173,7 +176,7 @@ export const AboutView: React.FC = () => {
                       data-live-card
                       className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 text-xs font-semibold text-slate-700 transition-shadow hover:shadow-md sm:text-sm"
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#C81E27] shadow-sm">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">
                         <Icon className="h-4 w-4" />
                       </span>
                       {strength.label}
@@ -188,16 +191,16 @@ export const AboutView: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, margin: '-70px' }}
               transition={{ duration: 0.65, delay: 0.08, ease: 'easeOut' }}
-              className="relative overflow-hidden rounded-3xl bg-[#202538] p-5 text-white shadow-2xl shadow-[#202538]/15 sm:p-7 lg:col-span-5"
+              className="relative overflow-hidden rounded-3xl bg-[#123D73] p-5 text-white shadow-2xl shadow-[#123D73]/15 sm:p-7 lg:col-span-5"
             >
               <div aria-hidden="true" className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-red-500/15 blur-3xl" />
               <div className="relative">
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-red-300">Our supply network</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-sky-200">Our supply network</p>
                     <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Authorized partners</h2>
                   </div>
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.07] text-red-300">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.07] text-sky-200">
                     <Cable className="h-5 w-5" />
                   </div>
                 </div>
@@ -214,7 +217,7 @@ export const AboutView: React.FC = () => {
                       viewport={{ once: false }}
                       transition={{ duration: 0.35, delay: index * 0.045, ease: 'easeOut' }}
                       whileHover={{ x: 4 }}
-                      className="group flex items-center justify-between gap-3 rounded-xl border border-white/[0.07] bg-white/[0.035] px-3.5 py-3 transition-colors hover:border-red-300/25 hover:bg-white/[0.08]"
+                      className="group flex items-center justify-between gap-3 rounded-xl border border-white/[0.07] bg-white/[0.035] px-3.5 py-3 transition-colors hover:border-blue-200 hover:bg-white/[0.08]"
                     >
                       <span className="flex min-w-0 items-center gap-2.5 text-xs font-semibold text-slate-100 sm:text-sm">
                         <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-400 transition-transform group-hover:scale-125" />
@@ -235,7 +238,7 @@ export const AboutView: React.FC = () => {
       </section>
 
       {/* Visual approach and company statistics */}
-      <section className="border-y border-slate-200 bg-[#F7F8FB] py-9 sm:py-11 lg:py-14">
+      <section className="border-y border-slate-200 bg-[#F0F7FF] py-9 sm:py-8 lg:py-14">
         <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
           <motion.figure
             initial={{ opacity: 0, scale: 0.96, x: -24 }}
@@ -246,7 +249,7 @@ export const AboutView: React.FC = () => {
             data-live-card
             className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/[0.06] sm:p-5 lg:col-span-6"
           >
-            <div className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#C81E27]">
+            <div className="mb-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-600">
               <Sparkles className="h-3.5 w-3.5" />
               Why customers choose us
             </div>
@@ -267,11 +270,11 @@ export const AboutView: React.FC = () => {
             transition={{ duration: 0.65, delay: 0.08, ease: 'easeOut' }}
             className="lg:col-span-6"
           >
-            <div className="mb-3 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#C81E27]">
+            <div className="mb-3 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-600">
               <Zap className="h-3.5 w-3.5" />
               Siddhi Kabel at a glance
             </div>
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#232742] sm:text-4xl">
+            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#0B2F5B] sm:text-4xl">
               The right products, supported by people who understand the work.
             </h2>
 
@@ -288,8 +291,8 @@ export const AboutView: React.FC = () => {
                     whileHover={{ y: -4 }}
                     className={`group px-2 py-4 text-center sm:px-5 sm:py-6 ${index < metrics.length - 1 ? 'border-r border-slate-200' : ''}`}
                   >
-                    <Icon className="mx-auto mb-2 h-4 w-4 text-[#C81E27] transition-transform duration-300 group-hover:-translate-y-0.5" />
-                    <div className="text-2xl font-extrabold tracking-tight text-[#C81E27] sm:text-4xl">{metric.value}</div>
+                    <Icon className="mx-auto mb-2 h-4 w-4 text-blue-600 transition-transform duration-300 group-hover:-translate-y-0.5" />
+                    <div className="text-2xl font-extrabold tracking-tight text-blue-600 sm:text-4xl">{metric.value}</div>
                     <div className="mt-1 text-[9px] font-semibold leading-4 text-slate-600 sm:text-xs">{metric.label}</div>
                   </motion.div>
                 );
@@ -303,13 +306,13 @@ export const AboutView: React.FC = () => {
             <motion.div
               whileHover={{ x: 4 }}
               data-live-card
-              className="mt-5 flex gap-3 rounded-2xl border border-red-100 bg-gradient-to-r from-red-50 to-white p-4 sm:p-5"
+              className="mt-5 flex gap-3 rounded-2xl border border-blue-200 bg-red-50 p-4 sm:p-5"
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#C81E27] shadow-sm">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm">
                 <Quote className="h-4 w-4" />
               </span>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#C81E27]">Technical services</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-600">Technical services</p>
                 <p className="mt-1 text-xs leading-6 text-slate-600 sm:text-sm">
                   Electrical earthing and lightning protection audits and installation, LED lighting projects, customized electrical control equipment and wire harnessing.
                 </p>
@@ -320,7 +323,7 @@ export const AboutView: React.FC = () => {
       </section>
 
       {/* Vision and mission: same team imagery, refreshed as an animated editorial grid */}
-      <section className="relative isolate overflow-hidden bg-[#25223F] py-9 sm:py-11 lg:py-14">
+      <section className="relative isolate overflow-hidden bg-[#123D73] py-9 sm:py-8 lg:py-14">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
           <div className="absolute -bottom-48 right-0 h-[28rem] w-[28rem] rounded-full bg-red-500/15 blur-3xl" />
@@ -334,7 +337,7 @@ export const AboutView: React.FC = () => {
             className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between"
           >
             <div>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-red-300">What guides our work</p>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-sky-200">What guides our work</p>
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">Vision &amp; mission</h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-slate-300">
@@ -364,7 +367,7 @@ export const AboutView: React.FC = () => {
                       alt={tile.alt}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.055]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#17172a]/85 via-[#17172a]/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2F5B]/85 via-[#0B2F5B]/10 to-transparent" />
                     <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-6">
                       <span className="max-w-xs text-sm font-semibold text-white sm:text-base">{tile.caption}</span>
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white backdrop-blur-md">
@@ -387,17 +390,17 @@ export const AboutView: React.FC = () => {
                   className="group flex min-h-[210px] flex-col justify-center rounded-2xl border border-white/70 bg-gradient-to-br from-white via-white to-slate-50 p-5 shadow-xl shadow-black/10 transition-shadow hover:shadow-2xl sm:min-h-[240px] sm:rounded-3xl sm:p-7 lg:p-9"
                 >
                   <div className="mb-5 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C81E27]">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600">
                       {tile.title}
                     </span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#C81E27] transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-105">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-105">
                       <Icon className="h-5 w-5" />
                     </span>
                   </div>
-                  <p className="max-w-xl text-xl font-semibold leading-relaxed tracking-tight text-[#232742] sm:text-2xl lg:text-3xl">
+                  <p className="max-w-xl text-xl font-semibold leading-relaxed tracking-tight text-[#0B2F5B] sm:text-2xl lg:text-3xl">
                     {tile.text}
                   </p>
-                  <div className="mt-6 h-1 w-12 origin-left rounded-full bg-[#C81E27] transition-all duration-500 group-hover:w-20" />
+                  <div className="mt-6 h-1 w-12 origin-left rounded-full bg-[#F43F5E] transition-all duration-500 group-hover:w-20" />
                 </motion.article>
               );
             })}

@@ -92,10 +92,10 @@ export const CableCalculator: React.FC<CableCalculatorProps> = ({ onAddRecommend
   }, [phase, inputMode, powerKw, currentAmps, powerFactor, distanceMeters, conductorMaterial, maxDropPercent]);
 
   return (
-    <section className="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <section className="py-10 lg:py-14 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8">
           <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest mb-2">
             <span>Electrical Engineering Suite</span>
             <span aria-hidden="true">·</span>

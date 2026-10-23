@@ -72,7 +72,7 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
             className="w-full h-full object-cover object-center"
           />
           {/* Subtle gradient overlay to enhance legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/25 to-slate-950/35" />
         </motion.div>
       </AnimatePresence>
 
@@ -151,7 +151,7 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
       </motion.button>
 
       {/* Slide Indicators & Auto-play progress bar */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/30 backdrop-blur-xs px-3 py-1.5 rounded-full">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-950/30 backdrop-blur-xs px-3 py-1.5 rounded-full">
         {slides.map((s, idx) => (
           <button
             key={s.id}

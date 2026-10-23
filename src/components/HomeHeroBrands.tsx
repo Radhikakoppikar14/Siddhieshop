@@ -33,7 +33,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
       id: 'mennekes',
       name: 'MENNEKES®',
       sub: '',
-      color: '#DC2626',
+      color: '#F43F5E',
       desc: 'MENNEKES is a leading manufacturer of industrial plugs and sockets for various applications.',
     },
     {
@@ -47,7 +47,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
       id: 'luker',
       name: 'LUKER®',
       sub: '',
-      color: '#1E293B',
+      color: '#2563A6',
       desc: 'Manufactures cost effective LED solutions in India for domestic and commercial needs.',
     },
     {
@@ -61,7 +61,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
       id: 'havells',
       name: 'HAVELLS',
       sub: '',
-      color: '#DC2626',
+      color: '#F43F5E',
       desc: 'Industrial cables, switchgear, protection devices and commercial energy efficient lighting.',
     },
     {
@@ -90,14 +90,14 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
   }
 
   return (
-    <section className="bg-white py-12 border-b border-slate-200 relative overflow-hidden">
+    <section className="bg-white py-8 border-b border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Carousel Container */}
         <div className="relative">
           {/* Left Arrow Button */}
           <button
             onClick={handlePrev}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#C81E27] hover:border-red-300 transition-all cursor-pointer hidden md:flex"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-all cursor-pointer hidden md:flex"
             aria-label="Previous brands"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -106,7 +106,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
           {/* Right Arrow Button */}
           <button
             onClick={handleNext}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#C81E27] hover:border-red-300 transition-all cursor-pointer hidden md:flex"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-all cursor-pointer hidden md:flex"
             aria-label="Next brands"
           >
             <ChevronRight className="w-5 h-5" />
@@ -147,7 +147,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
 
                 {/* Circular Button at bottom with arrow > exactly as in video */}
                 <div className="mt-8">
-                  <div className="w-10 h-10 rounded-full border border-slate-300 group-hover:border-[#C81E27] group-hover:bg-[#C81E27] text-slate-400 group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
+                  <div className="w-10 h-10 rounded-full border border-slate-300 group-hover:border-[#F43F5E] group-hover:bg-[#F43F5E] text-slate-400 group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
                     <ChevronRight className="w-5 h-5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export const HomeHeroBrands: React.FC<HomeHeroBrandsProps> = ({
               key={i}
               onClick={() => setStartIndex(i % (brands.length - 3))}
               className={`h-2 rounded-full transition-all cursor-pointer ${
-                startIndex === i ? 'w-6 bg-[#C81E27]' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                startIndex === i ? 'w-6 bg-[#F43F5E]' : 'w-2 bg-slate-200 hover:bg-slate-300'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

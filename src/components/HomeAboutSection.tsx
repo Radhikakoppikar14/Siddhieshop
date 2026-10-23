@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import React, { useState } from 'react';
 import { Play, X, Shield, Award } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -15,9 +16,9 @@ export const HomeAboutSection: React.FC = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   return (
-    <section className="py-16 lg:py-24 bg-white border-b border-slate-200 overflow-hidden">
+    <section className="py-10 lg:py-14 bg-white border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Video preview slides in from the left */}
           <motion.div
             initial={{ opacity: 0, x: -48, scale: 0.97 }}
@@ -67,22 +68,22 @@ export const HomeAboutSection: React.FC = () => {
                       ease: 'easeOut',
                       delay: 0.7,
                     }}
-                    className="absolute w-20 h-20 rounded-full bg-[#C81E27]/50 pointer-events-none"
+                    className="absolute w-20 h-20 rounded-full bg-[#F43F5E]/50 pointer-events-none"
                   />
 
                   {/* Core Play Button */}
                   <motion.span
                     whileHover={{ scale: 1.15 }}
                     whileTap={{ scale: 0.92 }}
-                    className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-[#C81E27] shadow-2xl flex items-center justify-center cursor-pointer transition-transform"
+                    className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-blue-600 shadow-2xl flex items-center justify-center cursor-pointer transition-transform"
                   >
-                    <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current ml-1 text-[#C81E27]" />
+                    <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current ml-1 text-blue-600" />
                   </motion.span>
                 </div>
               </div>
 
               {/* Floating video pill */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-white/10 bg-black/60 px-3.5 py-2 font-mono text-xs text-white shadow-lg backdrop-blur-md">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-white/10 bg-slate-950/60 px-3.5 py-2 font-mono text-xs text-white shadow-lg backdrop-blur-md">
                 <span className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
                   Corporate Showcase Video
@@ -108,15 +109,15 @@ export const HomeAboutSection: React.FC = () => {
             className="lg:col-span-6 space-y-5"
           >
             <motion.div variants={aboutItemVariants} className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-mono uppercase text-slate-700 font-semibold tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C81E27]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F43F5E]" />
               We Are Siddhi Kabel
             </motion.div>
 
-            <motion.h2 variants={aboutItemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#232742] tracking-tight leading-tight">
+            <motion.h2 variants={aboutItemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B2F5B] tracking-tight leading-tight">
               About Siddhi Kabel
             </motion.h2>
 
-            <motion.div variants={aboutItemVariants} className="w-16 h-1 bg-[#C81E27] rounded-full" />
+            <motion.div variants={aboutItemVariants} className="w-16 h-1 bg-[#F43F5E] rounded-full" />
 
             <motion.div variants={aboutItemVariants} className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
               <motion.p variants={aboutItemVariants} className="font-semibold text-slate-900">
@@ -130,11 +131,11 @@ export const HomeAboutSection: React.FC = () => {
             {/* Interactive feature chips */}
             <motion.div variants={aboutItemVariants} className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
               <motion.div whileHover={{ y: -3 }} className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-1.5 transition-shadow hover:shadow-md">
-                <Shield className="w-3.5 h-3.5 text-[#C81E27]" />
+                <Shield className="w-3.5 h-3.5 text-blue-600" />
                 <span>Established 2008</span>
               </motion.div>
               <motion.div whileHover={{ y: -3 }} className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-1.5 transition-shadow hover:shadow-md">
-                <Award className="w-3.5 h-3.5 text-[#C81E27]" />
+                <Award className="w-3.5 h-3.5 text-blue-600" />
                 <span>IS / IEC Standards Compliant</span>
               </motion.div>
             </motion.div>
@@ -143,14 +144,14 @@ export const HomeAboutSection: React.FC = () => {
       </div>
 
       {/* Video Modal Player */}
-      <AnimatePresence>
+      {createPortal(<AnimatePresence>
         {videoModalOpen && (
-          <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8" onClick={() => setVideoModalOpen(false)}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+              className="relative w-full max-w-4xl my-auto bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-white/20" onClick={(e) => e.stopPropagation()}
             >
               <div className="p-3 bg-slate-900 flex items-center justify-between text-white border-b border-slate-800">
                 <span className="text-xs font-mono font-bold flex items-center gap-2">
@@ -165,7 +166,7 @@ export const HomeAboutSection: React.FC = () => {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="aspect-video bg-black">
+              <div className="aspect-video bg-slate-950">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/e3a0qpri5NA?autoplay=1&rel=0"
                   title="Siddhi Kabel Corporate Showcase"
@@ -178,7 +179,7 @@ export const HomeAboutSection: React.FC = () => {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
     </section>
   );
 };

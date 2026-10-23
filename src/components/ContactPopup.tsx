@@ -45,7 +45,7 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
         <motion.div
           key="service-contact-popup"
           role="presentation"
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-sm sm:p-6"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-sm sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -64,8 +64,8 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative overflow-hidden bg-[#202538] px-6 pb-6 pt-7 text-white sm:px-8 sm:pt-8">
-              <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-16 h-48 w-48 rounded-full bg-red-500/20 blur-3xl" />
+            <div className="relative overflow-hidden bg-[#123D73] px-6 pb-6 pt-7 text-white sm:px-8 sm:pt-8">
+              <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-16 h-48 w-48 rounded-full bg-blue-400/20 blur-3xl" />
               <button
                 ref={closeButtonRef}
                 type="button"
@@ -99,9 +99,9 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
             <div className="space-y-3 p-5 sm:p-7">
               <a
                 href="tel:09620000947"
-                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-red-200 hover:bg-red-50/60 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50/60 hover:shadow-md"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#202538] text-red-400 transition-colors group-hover:bg-red-700 group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-red-700 group-hover:text-white">
                   <Phone className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -109,27 +109,27 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
                   <span className="mt-0.5 block text-base font-bold text-slate-900">096200 00947</span>
                   <span className="block text-xs text-slate-500">098860 58511</span>
                 </span>
-                <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-red-700" />
+                <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
               </a>
 
               <a
                 href={`mailto:info@siddhikabel.com?subject=${emailSubject}`}
-                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-red-200 hover:bg-red-50/60 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50/60 hover:shadow-md"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#202538] text-red-400 transition-colors group-hover:bg-red-700 group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-red-700 group-hover:text-white">
                   <Mail className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">Email us</span>
                   <span className="mt-0.5 block truncate text-sm font-bold text-slate-900 sm:text-base">info@siddhikabel.com</span>
                 </span>
-                <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-red-700" />
+                <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
               </a>
 
               <button
                 type="button"
                 onClick={onOpenContactPage}
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C81E27] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-900/15 transition-all hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C81E27]"
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#F43F5E] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-900/15 transition-all hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F43F5E]"
               >
                 Open contact form
                 <ArrowRight className="h-4 w-4" />

@@ -99,10 +99,10 @@ export const CableAnatomy: React.FC = () => {
   const activeLayer = CABLE_LAYERS.find((l) => l.id === activeLayerId) || CABLE_LAYERS[0];
 
   return (
-    <section id="anatomy" className="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <section id="anatomy" className="py-10 lg:py-14 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8">
           <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest mb-2">
             <span>Precision Engineering</span>
             <span aria-hidden="true">·</span>
@@ -117,7 +117,7 @@ export const CableAnatomy: React.FC = () => {
         </div>
 
         {/* Interactive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start">
           {/* Visual Asset & Interactive Hotspots */}
           <div className="lg:col-span-6 space-y-4">
             <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
@@ -133,7 +133,7 @@ export const CableAnatomy: React.FC = () => {
 
               {/* Inset Label */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
-                <span className="font-mono bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded border border-white/10">
+                <span className="font-mono bg-slate-950/60 backdrop-blur-xs px-2.5 py-1 rounded border border-white/10">
                   IS 7098 (PART 1) MULTI-CORE SPECIFICATION
                 </span>
                 <span className="font-mono text-slate-300">

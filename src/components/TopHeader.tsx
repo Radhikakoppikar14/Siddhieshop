@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Phone, Mail, ChevronDown, Menu, X, Tag, Sparkles } from 'lucide-react';
+import { Phone, Mail, ChevronDown, Menu, X, Tag, Sparkles, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+
+// Put your RFQ website address here, e.g. 'https://rfq.siddhikabel.com'.
+// While it is empty, the button opens the existing offer popup instead.
+const RFQ_SITE_URL = '';
 
 interface TopHeaderProps {
   activeTab: string;
@@ -52,12 +56,12 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
 
   return (
     <>
-      {/* Top Notification Strip: Exactly matching video background #202538 and text */}
-      <div className="bg-[#202538] text-slate-300 text-xs border-b border-[#2d344d]">
+      {/* Top Notification Strip: Deep navy strip */}
+      <div className="bg-[#123D73] text-white text-xs border-b border-[#2563A6]">
       <div className="py-2 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           {/* Tagline */}
-          <div className="flex items-center gap-2 text-[11px] font-medium tracking-wide text-slate-200 text-center sm:text-left">
+          <div className="flex items-center gap-2 text-[11px] font-medium tracking-wide text-white/90 text-center sm:text-left">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
             <span>Dependable Electrical Solutions for your Industrial Requirements</span>
           </div>
@@ -69,7 +73,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
               href="tel:09620000947"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-1.5 text-slate-200 transition-colors hover:text-white"
+              className="group flex items-center gap-1.5 text-white/90 transition-colors hover:text-white"
             >
               <Phone className="w-3.5 h-3.5 text-red-500 group-hover:scale-110 transition-transform" />
               <span>096200 00947, 098860 58511</span>
@@ -122,19 +126,19 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                   <button
                     onClick={() => handleNavClick('products')}
                     className={`relative py-1 text-sm font-bold transition-colors flex items-center gap-1 cursor-pointer ${
-                      isActive ? 'text-[#C81E27]' : 'text-slate-700 hover:text-[#C81E27]'
+                      isActive ? 'text-slate-900' : 'text-slate-900/75 hover:text-slate-900'
                     }`}
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        productsDropdown ? 'rotate-180 text-[#C81E27]' : 'text-slate-400'
+                        productsDropdown ? 'rotate-180 text-slate-900' : 'text-slate-400'
                       }`}
                     />
                     {isActive && (
                       <motion.div
                         layoutId="activeNavUnderline"
-                        className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#C81E27] rounded-full"
+                        className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#F43F5E] rounded-full"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -147,19 +151,19 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 w-56 bg-[#202538] text-white rounded-xl shadow-2xl py-2 z-50 border border-slate-700 mt-2"
+                        className="absolute top-full left-0 w-60 bg-white/95 backdrop-blur-xl text-slate-700 rounded-2xl shadow-[0_24px_50px_-20px_rgba(47,91,142,0.5)] py-2 z-50 border border-blue-100 mt-2 overflow-hidden"
                       >
-                        <div className="px-3.5 py-1.5 text-[10px] font-mono text-slate-400 uppercase tracking-widest border-b border-slate-700 mb-1">
+                        <div className="px-4 py-2 text-[10px] font-mono font-semibold text-blue-600 uppercase tracking-widest bg-[#E7F0FA] border-b border-blue-100 mb-1">
                           Authorized Brands
                         </div>
                         {productBrands.map((b) => (
                           <button
                             key={b.id}
                             onClick={() => handleNavClick('products')}
-                            className="w-full text-left px-4 py-2 text-xs font-medium text-slate-200 hover:text-white hover:bg-[#C81E27] transition-colors flex items-center justify-between group cursor-pointer"
+                            className="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:bg-blue-50 hover:pl-5 shadow-[inset_0_0_0_0_#F43F5E] hover:shadow-[inset_3px_0_0_0_#F43F5E] transition-all duration-200 flex items-center justify-between group cursor-pointer"
                           >
                             <span>{b.label}</span>
-                            <span className="text-[10px] text-slate-400 group-hover:text-white transition-colors">
+                            <span className="text-[11px] text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all">
                               →
                             </span>
                           </button>
@@ -176,14 +180,14 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 className={`relative py-1 text-sm font-bold transition-colors cursor-pointer ${
-                  isActive ? 'text-[#C81E27]' : 'text-slate-700 hover:text-[#C81E27]'
+                  isActive ? 'text-slate-900' : 'text-slate-900/75 hover:text-slate-900'
                 }`}
               >
                 <span>{item.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="activeNavUnderline"
-                    className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#C81E27] rounded-full"
+                    className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#F43F5E] rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -192,15 +196,19 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           })}
         </nav>
 
-        {/* Primary Action Button: Exactly styled as in video with vibrant red #C81E27 */}
+        {/* Primary Action Button: Exactly styled as in video with vibrant red #F43F5E */}
         <div className="flex items-center gap-3">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={onOpenOffer}
-            className="pulse-glow inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#C81E27] hover:bg-[#b01720] rounded-lg shadow-sm transition-all whitespace-nowrap cursor-pointer"
+            onClick={() => {
+              if (RFQ_SITE_URL) window.open(RFQ_SITE_URL, '_blank', 'noopener,noreferrer');
+              else onOpenOffer();
+            }}
+            className="pulse-glow inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#F43F5E] hover:bg-[#E11D48] rounded-lg shadow-sm transition-all whitespace-nowrap cursor-pointer"
           >
-            <span>PRODUCTS ON OFFER</span>
+            <span>Check our RFQ Site</span>
+            <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
           </motion.button>
 
           {/* Mobile hamburger */}
@@ -231,7 +239,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                 onClick={() => handleNavClick(item.id)}
                 className={`w-full text-left px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors ${
                   activeTab === item.id
-                    ? 'bg-red-50 text-[#C81E27] border border-red-200'
+                    ? 'bg-blue-50 text-blue-600 border border-blue-200'
                     : 'text-slate-800 hover:bg-slate-50'
                 }`}
               >

@@ -19,10 +19,10 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="contact" className="py-10 lg:py-14 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8">
           <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest mb-2">
             <span>Direct Inquiries</span>
             <span aria-hidden="true">·</span>
@@ -105,7 +105,7 @@ export const ContactSection: React.FC = () => {
           {/* Right Column: Interactive Inquiry Form */}
           <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-xs">
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
+              <div className="py-8 text-center space-y-4">
                 <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>

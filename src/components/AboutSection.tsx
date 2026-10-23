@@ -3,9 +3,9 @@ import { ShieldCheck, Truck, Warehouse, CheckCircle2, Award, Clock } from 'lucid
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <section id="about" className="py-10 lg:py-14 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: About Text Story */}
           <div className="lg:col-span-7 space-y-6">
             <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest">

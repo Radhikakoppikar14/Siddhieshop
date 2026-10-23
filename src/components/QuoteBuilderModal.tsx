@@ -86,7 +86,7 @@ export const QuoteBuilderModal: React.FC<QuoteBuilderModalProps> = ({
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/65 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100] overflow-y-auto bg-slate-950/65 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
       role="presentation"
     >
       <motion.div

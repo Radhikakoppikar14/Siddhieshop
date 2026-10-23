@@ -6,7 +6,7 @@ export const HomeClientsAndStats: React.FC = () => {
   return (
     <div className="space-y-0">
       {/* 1. We are committed to provide safe industrial solutions / We trusted by (Video Timestamp 00:11) */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section className="py-10 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
@@ -16,8 +16,8 @@ export const HomeClientsAndStats: React.FC = () => {
           >
             We are committed to provide safe industrial solutions.
           </motion.h2>
-          <div className="w-16 h-1 bg-[#C81E27] mx-auto mt-2 mb-4" />
-          <div className="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-10">
+          <div className="w-16 h-1 bg-[#F43F5E] mx-auto mt-2 mb-4" />
+          <div className="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-7">
             We trusted by
           </div>
 
@@ -33,7 +33,7 @@ export const HomeClientsAndStats: React.FC = () => {
       </section>
 
       {/* 2. Experience, Stats & Worker Robotics Section (Video Timestamp 00:14) */}
-      <section className="py-16 bg-[#FAFAFA] border-b border-slate-200">
+      <section className="py-10 bg-[#F0F7FF] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content Column */}
@@ -48,7 +48,7 @@ export const HomeClientsAndStats: React.FC = () => {
               {/* 3 Stats Counters matching video 00:14 */}
               <div className="grid grid-cols-3 gap-4 pt-2">
                 <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 text-center shadow-2xs">
-                  <div className="text-2xl sm:text-4xl font-extrabold text-[#C81E27] font-mono">
+                  <div className="text-2xl sm:text-4xl font-extrabold text-blue-600 font-mono">
                     15+
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
@@ -57,7 +57,7 @@ export const HomeClientsAndStats: React.FC = () => {
                 </div>
 
                 <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 text-center shadow-2xs">
-                  <div className="text-2xl sm:text-4xl font-extrabold text-[#C81E27] font-mono">
+                  <div className="text-2xl sm:text-4xl font-extrabold text-blue-600 font-mono">
                     20+
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
@@ -66,7 +66,7 @@ export const HomeClientsAndStats: React.FC = () => {
                 </div>
 
                 <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 text-center shadow-2xs">
-                  <div className="text-2xl sm:text-4xl font-extrabold text-[#C81E27] font-mono">
+                  <div className="text-2xl sm:text-4xl font-extrabold text-blue-600 font-mono">
                     300+
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">

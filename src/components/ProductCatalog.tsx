@@ -30,10 +30,10 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
     : CABLE_PRODUCTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="products" className="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <section id="products" className="py-10 lg:py-14 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-7">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest mb-2">
               <span>Catalog &amp; Inventory</span>

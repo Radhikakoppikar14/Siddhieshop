@@ -25,7 +25,7 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
       name: 'HAVELLS',
       logoText: 'HAVELLS',
       tagline: '',
-      color: '#DC2626',
+      color: '#F43F5E',
       category: 'switchgear',
       description: 'Havells India Limited is a leading Fast Moving Electrical Goods (FMEG) Company.',
     },
@@ -52,7 +52,7 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
       name: 'MENNEKES®',
       logoText: 'MENNEKES®',
       tagline: 'Plugs for the world',
-      color: '#DC2626',
+      color: '#F43F5E',
       category: 'plugs',
       description: 'MENNEKES is a leading manufacturer of industrial plugs and sockets for various applications.',
     },
@@ -70,7 +70,7 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
       name: 'LUKER®',
       logoText: 'LUKER®',
       tagline: '',
-      color: '#1E293B',
+      color: '#2563A6',
       category: 'lighting',
       description: 'Manufactures cost effective LED solutions in India for domestic and commercial needs.',
     },
@@ -100,7 +100,7 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
   const isSingleBrand = filteredBrands.length === 1;
 
   return (
-    <section className="py-16 lg:py-20 bg-white border-b border-slate-200">
+    <section className="py-10 lg:py-14 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header matching Image 4 */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
@@ -108,10 +108,10 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
             <div className="text-xs font-mono uppercase text-slate-500 font-semibold tracking-wider mb-1">
               Authorized Distribution Network
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#232742] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B2F5B] tracking-tight">
               Brands we deal with
             </h2>
-            <div className="w-16 h-1 bg-[#C81E27] mt-3 rounded-full" />
+            <div className="w-16 h-1 bg-[#F43F5E] mt-3 rounded-full" />
           </div>
 
           {/* Interactive filter tabs */}
@@ -152,7 +152,7 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => onSelectBrand(brand.id)}
               data-live-card
-              className={`group relative flex min-h-[300px] cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-[#F8FAFC] p-6 text-center shadow-2xs transition-all duration-300 hover:border-red-300 hover:bg-white hover:shadow-lg ${isSingleBrand ? 'sm:col-span-2 sm:min-h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:text-left lg:col-span-4 lg:min-h-[200px]' : ''}`}
+              className={`group relative flex min-h-[300px] cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-[#F8FAFC] p-6 text-center shadow-2xs transition-all duration-300 hover:border-blue-200 hover:bg-white hover:shadow-lg ${isSingleBrand ? 'sm:col-span-2 sm:min-h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:text-left lg:col-span-4 lg:min-h-[200px]' : ''}`}
             >
               {/* Subtle top brand accent line on hover */}
               <div
@@ -183,10 +183,10 @@ export const HomeBrandsWeDealWith: React.FC<HomeBrandsWeDealWithProps> = ({ onSe
 
               {/* Circular button with arrow at bottom matching Image 4 */}
               <div className={`mt-6 flex flex-col items-center gap-1.5 ${isSingleBrand ? 'sm:mt-0 sm:shrink-0' : ''}`}>
-                <div className="w-9 h-9 rounded-full bg-white border border-slate-300 group-hover:border-[#C81E27] group-hover:bg-[#C81E27] text-slate-400 group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
+                <div className="w-9 h-9 rounded-full bg-white border border-slate-300 group-hover:border-[#F43F5E] group-hover:bg-[#F43F5E] text-slate-400 group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
                   <ChevronRight className="w-4 h-4 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <span className="text-[10px] font-mono text-slate-400 group-hover:text-[#C81E27] transition-colors font-medium">
+                <span className="text-[10px] font-mono text-slate-400 group-hover:text-blue-600 transition-colors font-medium">
                   Explore Range
                 </span>
               </div>

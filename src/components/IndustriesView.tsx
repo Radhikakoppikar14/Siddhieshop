@@ -31,17 +31,17 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
   ];
 
   return (
-    <section id="industries" className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 via-white to-slate-50 pb-16 lg:pb-24">
+    <section id="industries" className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 via-white to-slate-50 pb-10 lg:pb-14">
       <PageVideoHero
         eyebrow="INDUSTRY EXPERTISE"
         title="Industries We Serve"
         description="Delivering engineered cabling and electrical switchgear to critical sectors across India with certified reliability."
       />
       {/* Background ambient accents */}
-      <div className="absolute top-1/4 left-10 w-80 h-80 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-slate-400/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 lg:py-12 relative z-10">
         {/* Section Header */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
@@ -64,7 +64,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
           >
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 mb-5 pb-3 border-b border-slate-100 flex items-center justify-between">
               <span>Sector Specializations:</span>
-              <span className="text-[10px] text-red-700 bg-red-50 px-2 py-0.5 rounded font-mono font-bold">
+              <span className="text-[10px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded font-mono font-bold">
                 PAN-INDIA SUPPLY
               </span>
             </div>
@@ -76,7 +76,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
                   className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-slate-50 transition-all cursor-default"
                 >
                   <span className="w-2 h-2 rounded-full bg-red-600 shrink-0" />
-                  <span className="text-slate-800 hover:text-red-700 transition-colors font-medium">
+                  <span className="text-slate-800 hover:text-blue-600 transition-colors font-medium">
                     {item}
                   </span>
                 </motion.li>
@@ -96,7 +96,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   data-live-card
-                  className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:border-red-500/40 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group flex flex-col justify-between"
+                  className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:border-blue-400/60 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group flex flex-col justify-between"
                 >
                   <div>
                     <div className="h-36 bg-slate-900 overflow-hidden relative">
@@ -121,7 +121,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
                   </div>
 
                   <div className="p-4 pt-0">
-                    <div className="w-full pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-red-700 font-bold">
+                    <div className="w-full pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-blue-600 font-bold">
                       <span>View Specifications</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -133,7 +133,7 @@ export const IndustriesView: React.FC<IndustriesViewProps> = ({ onContactClick }
             {/* Turnkey Callout Banner */}
             <motion.div
               whileHover={{ scale: 1.01 }}
-              className="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white rounded-2xl border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-6"
+              className="p-6 sm:p-8 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-6"
             >
               <div className="space-y-1 text-center sm:text-left">
                 <div className="text-base font-bold text-white flex items-center gap-2 justify-center sm:justify-start">

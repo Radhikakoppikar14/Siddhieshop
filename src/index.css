@@ -3,6 +3,52 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ===== Brand theme tokens (Navy + White + Red) ===== */
+  --color-brand-primary: #123D73;
+  --color-brand-primary-dark: #0B2F5B;
+  --color-brand-secondary: #2563A6;
+  --color-brand-soft: #F0F7FF;
+  --color-brand-accent: #F43F5E;
+  --color-brand-accent-hover: #E11D48;
+  --color-brand-text: #475569;
+  --color-brand-border: #DCE6F0;
+
+  /* Neutral scale remapped to the brand palette */
+  --color-slate-50: #F0F7FF;
+  --color-slate-100: #E7F0FA;
+  --color-slate-200: #DCE6F0;
+  --color-slate-300: #C3D3E4;
+  --color-slate-400: #8DA2BA;
+  --color-slate-500: #64788F;
+  --color-slate-600: #475569;
+  --color-slate-700: #2F4A6D;
+  --color-slate-800: #0B2F5B;
+  --color-slate-900: #123D73;
+  --color-slate-950: #0B2F5B;
+
+  /* Blue scale remapped to the brand palette */
+  --color-blue-50: #F0F7FF;
+  --color-blue-100: #E1EEFB;
+  --color-blue-200: #C9DCEF;
+  --color-blue-300: #93C5FD;
+  --color-blue-400: #5B8FC9;
+  --color-blue-500: #3170B4;
+  --color-blue-600: #2563A6;
+  --color-blue-700: #1D548E;
+  --color-blue-800: #123D73;
+  --color-blue-900: #0B2F5B;
+
+  /* Red accent: CTAs and small highlights only */
+  --color-red-50: #FFF1F3;
+  --color-red-100: #FFE4E8;
+  --color-red-200: #FECDD6;
+  --color-red-300: #FDA4B4;
+  --color-red-400: #FB7185;
+  --color-red-500: #F43F5E;
+  --color-red-600: #F43F5E;
+  --color-red-700: #F43F5E;
+  --color-red-800: #E11D48;
 }
 
 :root {
@@ -14,8 +60,8 @@
 
 body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #FFFFFF;
+  color: #475569;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -36,7 +82,7 @@ a[href] {
 }
 
 :where(button, a, input, select, textarea):focus-visible {
-  outline: 3px solid rgba(200, 30, 39, 0.45);
+  outline: 3px solid rgba(37, 99, 166, 0.45);
   outline-offset: 3px;
 }
 
@@ -57,9 +103,10 @@ textarea {
   z-index: 30;
   pointer-events: none;
   opacity: 0;
+  display: none;
   background: radial-gradient(
     520px circle at var(--pointer-x, -40vw) var(--pointer-y, -40vh),
-    rgba(200, 30, 39, 0.13),
+    rgba(244, 63, 94, 0.13),
     rgba(148, 163, 184, 0.055) 34%,
     transparent 72%
   );
@@ -85,7 +132,7 @@ textarea {
   opacity: 0;
   background: radial-gradient(
     300px circle at var(--card-pointer-x, 50%) var(--card-pointer-y, 50%),
-    rgba(200, 30, 39, 0.12),
+    rgba(37, 99, 166, 0.12),
     transparent 70%
   );
   transition: opacity 260ms var(--motion-ease);
@@ -98,23 +145,22 @@ textarea {
 
 .scroll-progress {
   transform-origin: left center;
-  box-shadow: 0 0 14px rgba(200, 30, 39, 0.42);
+  box-shadow: 0 0 14px rgba(37, 99, 166, 0.42);
 }
 
 main [data-page-reveal] {
   opacity: 0;
-  filter: blur(6px);
-  transform: translate3d(0, 32px, 0) scale(0.99);
+  transform: translate3d(0, 24px, 0);
   transition:
-    opacity 700ms var(--motion-ease),
-    filter 680ms var(--motion-ease),
-    transform 760ms var(--motion-ease);
+    opacity 800ms var(--motion-ease),
+    transform 900ms var(--motion-ease);
+  will-change: opacity, transform;
 }
 
 main [data-page-reveal][data-page-reveal-visible="true"] {
   opacity: 1;
-  filter: none;
   transform: none;
+  will-change: auto;
 }
 
 [data-live-card] {
@@ -141,10 +187,10 @@ main [data-page-reveal][data-page-reveal-visible="true"] {
 }
 
 [data-live-card]:hover {
-  border-color: rgba(200, 30, 39, 0.2);
+  border-color: rgba(37, 99, 166, 0.2);
   box-shadow:
-    0 24px 58px -34px rgba(15, 23, 42, 0.46),
-    0 0 0 1px rgba(200, 30, 39, 0.08);
+    0 24px 58px -34px rgba(18, 61, 115, 0.35),
+    0 0 0 1px rgba(37, 99, 166, 0.08);
 }
 
 [data-live-card]:hover::before {
@@ -176,24 +222,24 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #E7F0FA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #C3D3E4;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #8DA2BA;
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(220, 38, 38, 0);
+    box-shadow: 0 0 0 8px rgba(244, 63, 94, 0);
   }
 }
 
@@ -259,4 +305,38 @@ img {
   .contact-hero-video {
     display: none;
   }
+}
+
+
+/* ===== Shared component styling ===== */
+/* Links: secondary blue, hover navy (only plain text links) */
+a[href]:not([class]) { color: var(--color-brand-secondary); transition: color 200ms var(--motion-ease); }
+a[href]:not([class]):hover { color: var(--color-brand-primary); }
+
+/* CTA buttons (red): subtle lift */
+button[class*="bg-red-"], a[class*="bg-red-"], button[class*="bg-[#F43F5E]"], a[class*="bg-[#F43F5E]"] {
+  transition: transform 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), background-color 220ms var(--motion-ease);
+  box-shadow: 0 8px 20px -10px rgba(244, 63, 94, 0.6);
+}
+button[class*="bg-red-"]:hover, a[class*="bg-red-"]:hover, button[class*="bg-[#F43F5E]"]:hover, a[class*="bg-[#F43F5E]"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -12px rgba(225, 29, 72, 0.65);
+}
+
+/* Primary (navy) buttons: subtle lift */
+button[class*="bg-slate-900"], a[class*="bg-slate-900"] {
+  transition: transform 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), background-color 220ms var(--motion-ease);
+}
+button[class*="bg-slate-900"]:hover, a[class*="bg-slate-900"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -14px rgba(18, 61, 115, 0.7);
+}
+
+/* Cards: gentle image zoom */
+[data-live-card] img, .group img { transition: transform 700ms var(--motion-ease); }
+[data-live-card]:hover img, .group:hover img { transform: scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  button[class*="bg-red-"]:hover, a[class*="bg-red-"]:hover,
+  button[class*="bg-slate-900"]:hover, a[class*="bg-slate-900"]:hover { transform: none; }
 }

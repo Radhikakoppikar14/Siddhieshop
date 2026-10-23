@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, MotionConfig, useScroll } from 'motion/react';
-import { Phone, Mail, ArrowUp, Tag } from 'lucide-react';
+import { Phone, Mail, ArrowUp } from 'lucide-react';
 import { TopHeader } from './components/TopHeader';
 import { HomeHeroSlider } from './components/HomeHeroSlider';
 import { HomeTransformingSection } from './components/HomeTransformingSection';
@@ -107,11 +107,10 @@ export default function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.setAttribute('data-page-reveal-visible', 'true');
-          } else {
-            entry.target.removeAttribute('data-page-reveal-visible');
+            sectionObserver?.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.01, rootMargin: '0px 0px -32px 0px' })
+      }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' })
       : null;
     const observedSections = new Set<HTMLElement>();
 
@@ -167,9 +166,9 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-    <div ref={shellRef} className="site-shell min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#C81E27] selection:text-white font-sans antialiased">
+    <div ref={shellRef} className="site-shell min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#F43F5E] selection:text-white font-sans antialiased">
       <motion.div
-        className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-[#C81E27] via-[#ef4444] to-amber-300"
+        className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-[#F43F5E]"
         style={{ scaleX: scrollYProgress }}
         aria-hidden="true"
       />
@@ -181,13 +180,13 @@ export default function App() {
       />
 
       <main className="flex-1">
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={activeTab}
-          initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
-          transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
         {activeTab === 'home' && (
           <>
@@ -283,25 +282,12 @@ export default function App() {
             href="tel:09620000947"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#202538] text-white shadow-sm transition-colors hover:bg-slate-900"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#123D73] text-white shadow-sm transition-colors hover:bg-slate-900"
             aria-label="Call Siddhi Kabel: 096200 00947"
             title="Call Siddhi Kabel: 096200 00947"
           >
-            <Phone className="w-3.5 h-3.5 text-red-400" />
+            <Phone className="w-3.5 h-3.5 text-sky-200" />
           </motion.a>
-
-          {/* Quick Special Offer Pill */}
-          <motion.button
-            type="button"
-            onClick={() => setOfferModalOpen(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1.5 bg-[#C81E27] hover:bg-red-700 text-white text-xs font-mono font-bold px-3.5 py-2.5 rounded-full shadow-sm transition-colors cursor-pointer"
-            title="View Products On Offer"
-          >
-            <Tag className="w-3.5 h-3.5" />
-            <span>Special Offer</span>
-          </motion.button>
 
           {/* Scroll to Top */}
           <AnimatePresence>
@@ -314,7 +300,7 @@ export default function App() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#C81E27] text-slate-700 hover:text-[#C81E27] flex items-center justify-center shadow-sm cursor-pointer transition-colors"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#F43F5E] text-slate-700 hover:text-blue-600 flex items-center justify-center shadow-sm cursor-pointer transition-colors"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-4 h-4" />

@@ -36,10 +36,10 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onContactClick }) =>
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-[#F4F5F7] border-b border-slate-200">
+    <section className="py-10 lg:py-14 bg-[#F0F7FF] border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header matching Image 4 & 5 */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,10 +49,10 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onContactClick }) =>
             <div className="text-xs font-mono uppercase text-slate-500 font-semibold tracking-wider mb-1">
               We Are Siddhi Kabel
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#232742] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B2F5B] tracking-tight">
               Services For Industries
             </h2>
-            <div className="w-16 h-1 bg-[#C81E27] mt-3 rounded-full" />
+            <div className="w-16 h-1 bg-[#F43F5E] mt-3 rounded-full" />
           </motion.div>
 
           <motion.p
@@ -85,7 +85,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onContactClick }) =>
                   viewport={{ once: false, amount: 0.16 }}
                   transition={{ duration: 4.8, delay: idx * 0.45, repeat: Infinity, ease: 'easeInOut' }}
                   data-live-card
-                  className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white bg-white shadow-[0_16px_42px_-24px_rgba(15,23,42,0.42)] transition-[box-shadow,border-color] duration-300 group hover:border-red-200 hover:shadow-[0_28px_60px_-24px_rgba(15,23,42,0.38)]"
+                  className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white bg-white shadow-[0_16px_42px_-24px_rgba(15,23,42,0.42)] transition-[box-shadow,border-color] duration-300 group hover:border-blue-200 hover:shadow-[0_28px_60px_-24px_rgba(15,23,42,0.38)]"
                 >
                 <div>
                   {/* Authentic Cropped Image with zoom on hover */}
@@ -95,17 +95,17 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onContactClick }) =>
                       alt={srv.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     {/* Badge */}
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold text-[#202538] flex items-center gap-1.5 shadow-2xs">
-                      <IconComponent className="w-3.5 h-3.5 text-[#C81E27]" />
+                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold text-[#123D73] flex items-center gap-1.5 shadow-2xs">
+                      <IconComponent className="w-3.5 h-3.5 text-blue-600" />
                       <span>Specialized Service</span>
                     </div>
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#C81E27] transition-colors leading-snug">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                       {srv.title}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">
@@ -128,11 +128,11 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onContactClick }) =>
 
                 {/* Animated Inquire CTA */}
                 <div className="px-6 pb-6 pt-2">
-                  <div className="flex items-center justify-between text-xs font-semibold text-[#C81E27] border-t border-slate-100 pt-3">
+                  <div className="flex items-center justify-between text-xs font-semibold text-blue-600 border-t border-slate-100 pt-3">
                     <button
                       type="button"
                       onClick={() => onContactClick(srv.title)}
-                      className="group/request inline-flex w-full items-center justify-between text-left text-xs font-semibold text-[#C81E27] transition-colors hover:text-red-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C81E27]"
+                      className="group/request inline-flex w-full items-center justify-between text-left text-xs font-semibold text-blue-600 transition-colors hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F43F5E]"
                     >
                       <span>Request Details</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/request:translate-x-1" />

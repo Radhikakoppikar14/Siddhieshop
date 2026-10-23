@@ -41,15 +41,10 @@ const partnerBrands = ['LAPP', 'EATON', 'HAVELLS', 'HAGER', 'MENNEKES', 'JEF ECO
 
 export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="relative isolate overflow-hidden border-t border-white/10 bg-[#191B30] text-slate-300">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -right-32 -top-44 h-96 w-96 rounded-full bg-[#C81E27]/15 blur-3xl" />
-        <div className="absolute -bottom-48 left-1/4 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#e0525a] to-transparent" />
-      </div>
+    <footer className="relative isolate overflow-hidden border-t border-white/10 bg-[#0B2F5B] text-slate-200">
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-11 py-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-14 lg:py-16">
+        <div className="grid gap-11 py-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-14 lg:py-12">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +55,7 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => onNavigate('home')}
-              className="inline-flex rounded-xl bg-white p-2.5 shadow-lg shadow-black/10 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+              className="inline-flex rounded-xl bg-white p-2.5 shadow-lg shadow-black/10 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               aria-label="Siddhi Kabel home"
             >
               <img
@@ -70,23 +65,23 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
               />
             </button>
 
-            <p className="max-w-md text-sm leading-7 text-slate-300">
+            <p className="max-w-md text-sm leading-7 text-slate-200">
               Reliable industrial electrical, automation and safety products, backed by knowledgeable support and dependable supply.
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-1">
               <a
                 href="tel:09620000947"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-semibold text-slate-100 transition-colors hover:border-red-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-semibold text-slate-100 transition-colors hover:border-blue-300/70 hover:text-blue-300 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                <Phone className="h-3.5 w-3.5 text-red-400 transition-transform group-hover:rotate-[-12deg]" />
+                <Phone className="h-3.5 w-3.5 text-sky-200 transition-transform group-hover:rotate-[-12deg]" />
                 096200 00947
               </a>
               <a
                 href="mailto:info@siddhikabel.com"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-semibold text-slate-100 transition-colors hover:border-red-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-semibold text-slate-100 transition-colors hover:border-blue-300/70 hover:text-blue-300 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                <Mail className="h-3.5 w-3.5 text-red-400 transition-transform group-hover:-translate-y-0.5" />
+                <Mail className="h-3.5 w-3.5 text-sky-200 transition-transform group-hover:-translate-y-0.5" />
                 Email our team
               </a>
             </div>
@@ -107,7 +102,7 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
                   <button
                     type="button"
                     onClick={() => onNavigate(link.tab)}
-                    className="group inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white"
+                    className="group inline-flex items-center gap-1.5 text-sm text-white transition-colors hover:text-blue-300 focus-visible:outline-none focus-visible:text-blue-300"
                   >
                     <span>{link.label}</span>
                     <ArrowRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -116,9 +111,9 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
               ))}
             </ul>
             <div className="mt-7 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Serving industry since</div>
+              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-200">Serving industry since</div>
               <div className="text-2xl font-bold tracking-tight text-white">2008</div>
-              <div className="mt-1 text-xs text-slate-400">Bangalore, India</div>
+              <div className="mt-1 text-xs text-slate-200">Bangalore, India</div>
             </div>
           </motion.nav>
 
@@ -139,13 +134,13 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
                     type="button"
                     onClick={() => onNavigate('products')}
                     whileHover={{ y: -3 }}
-                    className="group rounded-xl border border-white/[0.08] bg-white/[0.04] p-3.5 text-left transition-colors hover:border-red-400/30 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+                    className="group rounded-xl border border-white/[0.08] bg-white/[0.04] p-3.5 text-left transition-colors hover:border-blue-300/70 hover:text-blue-300 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                   >
-                    <span className="mb-2.5 flex h-8 w-8 items-center justify-center rounded-lg bg-red-500/10 text-red-300 transition-colors group-hover:bg-red-500/20">
+                    <span className="mb-2.5 flex h-8 w-8 items-center justify-center rounded-lg bg-red-500/10 text-sky-200 transition-colors group-hover:bg-red-500/20">
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="block text-xs font-semibold text-slate-100">{area.title}</span>
-                    <span className="mt-1 block text-[11px] leading-5 text-slate-400">{area.detail}</span>
+                    <span className="mt-1 block text-[11px] leading-5 text-slate-200">{area.detail}</span>
                   </motion.button>
                 );
               })}
@@ -154,13 +149,13 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="border-y border-white/10 py-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
-          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500 sm:mb-0">Authorized multi-brand supply</p>
+          <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-200 sm:mb-0">Authorized multi-brand supply</p>
           <div className="flex flex-wrap gap-2">
             {partnerBrands.map((brand) => (
               <motion.span
                 key={brand}
                 whileHover={{ y: -2 }}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-bold tracking-wide text-slate-300 transition-colors hover:border-white/20 hover:text-white"
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-bold tracking-wide text-slate-200 transition-colors hover:border-white/20 hover:text-white"
               >
                 {brand}
               </motion.span>
@@ -168,7 +163,7 @@ export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="py-5 text-center text-[11px] text-slate-500 sm:text-left">
+        <div className="py-5 text-center text-[11px] text-slate-200 sm:text-left">
           <p>© {new Date().getFullYear()} Siddhi Kabel Corporation Private Limited. All rights reserved.</p>
         </div>
       </div>

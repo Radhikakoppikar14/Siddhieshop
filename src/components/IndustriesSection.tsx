@@ -18,10 +18,10 @@ export const IndustriesSection: React.FC = () => {
   };
 
   return (
-    <section id="industries" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="industries" className="py-10 lg:py-14 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8">
           <div className="flex items-center gap-2 text-xs font-mono font-medium text-slate-500 uppercase tracking-widest mb-2">
             <span>Critical Infrastructure</span>
             <span aria-hidden="true">·</span>
