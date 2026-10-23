@@ -14,8 +14,6 @@ export const PageVideoHero: React.FC<PageVideoHeroProps> = ({ eyebrow, title, de
         alt=""
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
-     ```tsx
-```tsx
 <video
   autoPlay
   muted
@@ -29,11 +27,9 @@ export const PageVideoHero: React.FC<PageVideoHeroProps> = ({ eyebrow, title, de
 </video>
 
 <div className="absolute inset-0 bg-slate-950/20" />
-```
 
 
 <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/20" />
-```
 
       <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/65 to-white/40" />
       <div className="absolute inset-0 bg-white/5" />

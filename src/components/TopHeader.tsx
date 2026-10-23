@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Phone, Mail, ChevronDown, Menu, X, Tag, Sparkles, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Put your RFQ website address here, e.g. 'https://rfq.siddhikabel.com'.
-// While it is empty, the button opens the existing offer popup instead.
+// Optional: put an external RFQ website address here, e.g. 'https://rfq.siddhikabel.com'.
+// While it is empty, the button opens the Products on Offer page inside this site.
 const RFQ_SITE_URL = '';
 
 interface TopHeaderProps {
@@ -203,7 +203,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
             whileTap={{ scale: 0.98 }}
             onClick={() => {
               if (RFQ_SITE_URL) window.open(RFQ_SITE_URL, '_blank', 'noopener,noreferrer');
-              else onOpenOffer();
+              else handleNavClick('offer');
             }}
             className="pulse-glow inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#F43F5E] hover:bg-[#E11D48] rounded-lg shadow-sm transition-all whitespace-nowrap cursor-pointer"
           >

@@ -6,9 +6,11 @@ import { PRODUCTS_ON_OFFER_DATA, SpecialOfferItem } from '../data/siddhiContent'
 interface ProductsOnOfferModalProps {
   isOpen: boolean;
   onClose: () => void;
+  /** Render as a normal page (inside the site layout) instead of a popup */
+  asPage?: boolean;
 }
 
-export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOpen, onClose }) => {
+export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOpen, onClose, asPage = false }) => {
   const [search, setSearch] = useState('');
   const [selectedItems, setSelectedItems] = useState<{ [partNo: string]: boolean }>({
     'SK-OLF-110-4G1.5': true,
@@ -65,14 +67,14 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
 
   return (
     <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] overflow-y-auto bg-[#0B2F5B]/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+      {(asPage || isOpen) && (
+        <div className={asPage ? 'bg-[#F0F7FF] px-3 py-6 sm:px-6 sm:py-10' : 'fixed inset-0 z-[100] overflow-y-auto bg-[#0B2F5B]/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6'}>
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-5xl bg-white rounded-3xl shadow-[0_40px_90px_-30px_rgba(11,47,91,0.6)] border border-white/70 overflow-hidden flex flex-col max-h-[92vh]"
+            className={`relative mx-auto w-full max-w-5xl bg-white rounded-3xl shadow-[0_40px_90px_-30px_rgba(11,47,91,0.6)] border border-white/70 overflow-hidden flex flex-col ${asPage ? '' : 'max-h-[92vh]'}`}
           >
             {/* Header Bar */}
             <div className="relative shrink-0 overflow-hidden bg-[#123D73] px-5 py-4 sm:px-6 text-white">
@@ -106,7 +108,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                 <button
                   onClick={onClose}
                   className="shrink-0 rounded-xl bg-white/15 p-2 text-white ring-1 ring-white/30 transition-all duration-300 hover:rotate-90 hover:bg-white/30 cursor-pointer"
-                  aria-label="Close offer modal"
+                  aria-label={asPage ? 'Back to products' : 'Close offer modal'}
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -120,7 +122,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
             </div>
 
             {/* Content Body */}
-            <div className="p-6 overflow-y-auto space-y-6 flex-1 min-h-0 text-xs bg-[#F0F7FF]">
+            <div className={`p-6 space-y-6 text-xs bg-[#F0F7FF] ${asPage ? '' : 'overflow-y-auto flex-1 min-h-0'}`}>
               {orderSent ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}

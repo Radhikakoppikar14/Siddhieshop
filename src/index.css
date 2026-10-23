@@ -340,3 +340,115 @@ button[class*="bg-slate-900"]:hover, a[class*="bg-slate-900"]:hover {
   button[class*="bg-red-"]:hover, a[class*="bg-red-"]:hover,
   button[class*="bg-slate-900"]:hover, a[class*="bg-slate-900"]:hover { transform: none; }
 }
+
+
+/* =====================================================================
+   LIVE EFFECTS: reveals, cards, images, buttons, navigation
+   (driven by the effects engine in App.tsx via data-fx attributes)
+   ===================================================================== */
+
+@property --rr { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --ra { syntax: '<number>'; inherits: false; initial-value: 0; }
+
+/* ---- Staggered entrance (hidden state only; visible state falls back to utilities) ---- */
+[data-fx] {
+  transition:
+    opacity 750ms var(--motion-ease) var(--fx-delay, 0ms),
+    translate 850ms var(--motion-ease) var(--fx-delay, 0ms),
+    scale 850ms var(--motion-ease) var(--fx-delay, 0ms),
+    filter 800ms var(--motion-ease) var(--fx-delay, 0ms);
+}
+[data-fx]:not([data-fx-in]) { opacity: 0; }
+[data-fx="up"]:not([data-fx-in])    { translate: 0 34px; scale: 0.97; }
+[data-fx="left"]:not([data-fx-in])  { translate: -44px 0; }
+[data-fx="right"]:not([data-fx-in]) { translate: 44px 0; }
+[data-fx="img"]:not([data-fx-in])   { scale: 1.12; filter: blur(10px); }
+
+/* After the entrance finishes: no delay, snappy hover transitions */
+[data-fx-done] {
+  transition:
+    opacity 200ms var(--motion-ease),
+    translate 350ms var(--motion-ease),
+    scale 350ms var(--motion-ease),
+    box-shadow 360ms var(--motion-ease),
+    border-color 360ms var(--motion-ease),
+    background-color 250ms var(--motion-ease),
+    color 250ms var(--motion-ease);
+}
+main img[data-fx] {
+  transition:
+    opacity 900ms var(--motion-ease) var(--fx-delay, 0ms),
+    scale 1100ms var(--motion-ease) var(--fx-delay, 0ms),
+    filter 900ms var(--motion-ease) var(--fx-delay, 0ms),
+    transform 700ms var(--motion-ease);
+}
+main img[data-fx-done], footer img[data-fx-done] {
+  transition: transform 700ms var(--motion-ease), scale 400ms var(--motion-ease), opacity 200ms ease;
+}
+
+/* ---- Cards: lift + stronger glow, image zoom, accent bar ---- */
+[data-live-card]:not([class*="translate-"]):hover { translate: 0 -6px; }
+[data-live-card]:hover {
+  border-color: rgba(37, 99, 166, 0.35);
+  box-shadow:
+    0 30px 60px -30px rgba(18, 61, 115, 0.45),
+    0 0 0 1px rgba(37, 99, 166, 0.12);
+}
+[data-live-card]:hover img { transform: scale(1.07); }
+[data-live-card] { overflow-clip-margin: 0; }
+
+/* ---- Buttons & links ---- */
+button:not(:disabled):active,
+a[href]:active,
+[role="button"]:active { scale: 0.96; }
+
+/* Outline / pill buttons lift on hover */
+main button[class*="border"]:not([class*="translate-"]):not(:disabled):hover,
+main a[href][class*="border"]:not([class*="translate-"]):hover {
+  translate: 0 -2px;
+}
+
+/* Arrow / chevron icons slide on hover */
+:is(button, a):hover svg.lucide-arrow-right,
+:is(button, a):hover svg.lucide-arrow-up-right,
+:is(button, a):hover svg.lucide-chevron-right,
+:is(button, a):hover svg.lucide-move-right,
+:is(button, a):hover svg.lucide-external-link { translate: 4px 0; }
+:is(button, a):hover svg.lucide-arrow-left,
+:is(button, a):hover svg.lucide-chevron-left { translate: -4px 0; }
+:is(button, a):hover svg.lucide-arrow-up { translate: 0 -3px; }
+:is(button, a):hover svg.lucide-arrow-down,
+:is(button, a):hover svg.lucide-chevron-down { translate: 0 3px; }
+button svg, a svg { transition: translate 260ms var(--motion-ease), rotate 260ms var(--motion-ease), color 200ms ease; }
+
+/* Footer links nudge */
+footer :is(a, button) { transition-property: color, background-color, translate; transition-duration: 220ms; }
+footer :is(a, button):not(:has(img)):hover { translate: 4px 0; }
+
+/* Click ripple (background only, never changes layout) */
+.fx-rippling {
+  background-image: radial-gradient(
+    circle at var(--rx, 50%) var(--ry, 50%),
+    color-mix(in srgb, currentColor calc(var(--ra) * 100%), transparent) var(--rr),
+    transparent calc(var(--rr) + 1px)
+  );
+  animation: fx-ripple 650ms ease-out;
+}
+@keyframes fx-ripple {
+  0%   { --rr: 0px;                    --ra: 0.28; }
+  100% { --rr: var(--rmax, 320px);     --ra: 0; }
+}
+
+/* ---- Ambient "live" motion ---- */
+@keyframes fx-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+.fx-float { animation: fx-float 5s ease-in-out infinite; }
+
+/* ---- Reduced motion: show everything immediately ---- */
+@media (prefers-reduced-motion: reduce) {
+  [data-fx]:not([data-fx-in]) { opacity: 1; translate: none; scale: none; filter: none; }
+  [data-live-card]:hover { translate: none; }
+  .fx-rippling { animation: none; background-image: none; }
+}

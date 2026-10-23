@@ -11,14 +11,12 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
     {
       id: 1,
       video: '/assets/video/demo1.mp4',
-      poster: '/assets/frames/sec_19.jpg',
       title: 'ELECTRICAL SOLUTIONS',
       subtitle: 'Power and control, Applications',
     },
     {
       id: 2,
       video: '/assets/video/demo2.mp4',
-      poster: '/assets/frames/sec_20.jpg',
       title: 'INDUSTRIAL CABLING',
       subtitle: 'Precision Power & Automation Cables',
     },
@@ -39,27 +37,28 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
 
   return (
     <section
-      className="relative w-full h-[380px] sm:h-[480px] lg:h-[560px] bg-slate-900 overflow-hidden select-none group"
+      className="relative w-full h-[380px] sm:h-[480px] lg:h-[560px] bg-[#0A1018] overflow-hidden select-none group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Full-bleed demo video background */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false}>
         <motion.div
           key={slide.id}
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
+          exit={{ opacity: 0.99, transition: { duration: 0.8 } }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0"
         >
           <video
             src={slide.video}
-            poster={slide.poster}
             autoPlay
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
+            style={{ opacity: 0, transition: 'opacity 600ms ease' }}
+            onLoadedData={(event) => { event.currentTarget.style.opacity = '1'; }}
             aria-hidden="true"
             onEnded={(event) => {
               if (isPaused) {
@@ -85,7 +84,7 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="relative pl-6 sm:pl-8 py-6 max-w-xl"
+            className="relative pl-6 pr-6 sm:pl-8 sm:pr-10 py-6 max-w-full"
           >
             {/* White Angular Frame Border with animated spring expansion */}
             <motion.div
@@ -111,7 +110,7 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-md"
+              className="whitespace-nowrap text-[clamp(1.35rem,6.2vw,2.25rem)] sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-md"
             >
               {slide.title}
             </motion.h1>
@@ -120,7 +119,7 @@ export const HomeHeroSlider: React.FC<HomeHeroSliderProps> = ({ onExploreProduct
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.3 }}
-              className="mt-3 sm:mt-4 text-base sm:text-xl font-medium text-white/95 drop-shadow"
+              className="mt-3 sm:mt-4 whitespace-nowrap text-[clamp(0.8rem,3.4vw,1rem)] sm:text-xl font-medium text-white/95 drop-shadow"
             >
               {slide.subtitle}
             </motion.p>

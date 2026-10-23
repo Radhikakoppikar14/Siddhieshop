@@ -21,13 +21,12 @@ export const ContactView: React.FC = () => {
   return (
     <section id="contact" className="bg-white border-b border-slate-200 relative overflow-hidden">
       {/* Industrial Skyline Banner from Video */}
-      <div className="relative h-48 sm:h-64 bg-[#F0F7FF] overflow-hidden border-b border-slate-200">
+      <div className="relative h-56 sm:h-72 bg-[#F0F7FF] overflow-hidden border-b border-slate-200">
         <img
           src="/assets/industrial_banner.jpg"
           alt="Contact Siddhi Kabel industrial facilities"
           className="absolute inset-0 h-full w-full object-cover object-center opacity-50"
         />
-       ```tsx
 <video
   autoPlay
   muted
@@ -41,19 +40,45 @@ export const ContactView: React.FC = () => {
 </video>
 
 <div className="absolute inset-0 bg-slate-950/20" />
-```
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/75 px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-[#E11D48] shadow-sm backdrop-blur-sm sm:text-xs"
+            >
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#F43F5E]" />
+              Get in touch
+            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
               className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight uppercase"
             >
               CONTACT US
             </motion.h1>
             <div className="w-16 h-1 bg-red-500 mt-3 rounded-full" />
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.2 }}
+              className="mt-3 max-w-xl text-sm leading-relaxed text-slate-700 sm:text-base"
+            >
+              Tell us your cable, wiring or electrical requirement and our team will get back to you with the right solution and a quote.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.3 }}
+              className="mt-3 hidden flex-wrap items-center gap-x-5 gap-y-1 text-xs font-semibold text-[#123D73] sm:flex"
+            >
+              <span className="inline-flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-[#F43F5E]" /> 096200 00947</span>
+              <span className="inline-flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-[#F43F5E]" /> info@siddhikabel.com</span>
+              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-[#F43F5E]" /> Bangalore, India</span>
+            </motion.div>
           </div>
         </div>
       </div>

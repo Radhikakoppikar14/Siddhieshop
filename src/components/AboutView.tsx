@@ -79,7 +79,6 @@ export const AboutView: React.FC = () => {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-[center_42%] opacity-50"
         />
-       ```tsx
 <video
   autoPlay
   muted
@@ -93,7 +92,6 @@ export const AboutView: React.FC = () => {
 </video>
 
 <div className="absolute inset-0 bg-slate-950/20" />
-```
 
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
         
