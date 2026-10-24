@@ -7,18 +7,13 @@ import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from
 import { motion, AnimatePresence, MotionConfig, useScroll } from 'motion/react';
 import { Phone, Mail, ArrowUp } from 'lucide-react';
 import { TopHeader } from './components/TopHeader';
-import { HomeHeroSlider } from './components/HomeHeroSlider';
-import { HomeTransformingSection } from './components/HomeTransformingSection';
-import { HomeBrandsWeDealWith } from './components/HomeBrandsWeDealWith';
-import { HomeAboutSection } from './components/HomeAboutSection';
-import { ServicesView } from './components/ServicesView';
 import { ProjectsView } from './components/ProjectsView';
-import { HomeTrustedClients } from './components/HomeTrustedClients';
-import { AboutView } from './components/AboutView';
-import { ProductsView } from './components/ProductsView';
-import { IndustriesView } from './components/IndustriesView';
-import { ContactView } from './components/ContactView';
-import { RfqSiteView } from './components/RfqSiteView';
+import { HomePage } from './components/HomePage';
+import { AboutPage } from './components/AboutPage';
+import { ProductsPage } from './components/ProductsPage';
+import { IndustriesPage } from './components/IndustriesPage';
+import { ContactPage } from './components/ContactPage';
+import { RfqPage } from './components/RfqPage';
 import { ContactPopup } from './components/ContactPopup';
 import { ProductsOnOfferModal } from './components/ProductsOnOfferModal';
 import { SiddhiFooter } from './components/SiddhiFooter';
@@ -341,41 +336,16 @@ export default function App() {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
         {activeTab === 'home' && (
-          <>
-            {/* 1. Hero Slider (Image 1 & 3): Electrical Switchgear Cabinets + Angular Text Frame */}
-            <HomeHeroSlider
-              onExploreProducts={() => {
-                setActiveTab('products');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            />
-
-            {/* 2. Transforming Indian Industry + Guiding Principle + Worker + Stats + Why Choose Us (Image 2 & 3) */}
-            <HomeTransformingSection />
-
-            {/* 3. Brands we deal with (Image 4): 8 Brand Cards in 2 rows of 4 with logos & arrow buttons */}
-            <HomeBrandsWeDealWith onSelectBrand={handleSelectBrand} />
-
-            {/* 4. About Siddhi Kabel (Image 4): Montage Image with Play button + Two Copy Paragraphs */}
-            <HomeAboutSection />
-
-            {/* 5. Services For Industries (Image 4 & 5): 3 Cards with Cables, Lighting, Grounding */}
-            <ServicesView
-              onContactClick={(serviceName) => setContactPopupService(serviceName)}
-            />
-
-            {/* 6. Recent Projects (Image 5): Centered Header + Grounding Project site photo & details */}
-            <ProjectsView />
-
-            {/* 7. Trusted Clients (Image 5): "We are committed to provide safe industrial solutions." / ACE, AMS, apicom, BEL, BEML */}
-            <HomeTrustedClients />
-          </>
+          <HomePage
+            onSelectBrand={handleSelectBrand}
+            onContactClick={(serviceName) => setContactPopupService(serviceName)}
+          />
         )}
 
         {activeTab === 'about' && (
           <div>
             {/* Dedicated About Us Page (Video timestamp 00:15 - 00:18) */}
-            <AboutView />
+            <AboutPage />
             {/* Grounding Projects Showcase */}
             <ProjectsView />
           </div>
@@ -383,13 +353,13 @@ export default function App() {
 
         {activeTab === 'products' && (
           <div>
-            <ProductsView onOpenOffer={() => setOfferModalOpen(true)} />
+            <ProductsPage onOpenOffer={() => setOfferModalOpen(true)} />
           </div>
         )}
 
         {activeTab === 'industries' && (
           <div>
-            <IndustriesView
+            <IndustriesPage
               onContactClick={() => {
                 setActiveTab('contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -400,7 +370,7 @@ export default function App() {
 
         {activeTab === 'offer' && (
           <div>
-            <RfqSiteView
+            <RfqPage
               onNavigate={(tab) => {
                 setActiveTab(tab);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -412,7 +382,7 @@ export default function App() {
 
         {activeTab === 'contact' && (
           <div>
-            <ContactView />
+            <ContactPage />
           </div>
         )}
         </motion.div>

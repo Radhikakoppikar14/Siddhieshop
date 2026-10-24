@@ -9,11 +9,6 @@ interface PageVideoHeroProps {
 export const PageVideoHero: React.FC<PageVideoHeroProps> = ({ eyebrow, title, description }) => (
   <section className="relative z-10 isolate overflow-hidden border-b border-slate-200/80 bg-slate-100">
     <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
-      <img
-        src="/assets/industrial_banner.jpg"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
 <video
   autoPlay
   muted
@@ -21,19 +16,16 @@ export const PageVideoHero: React.FC<PageVideoHeroProps> = ({ eyebrow, title, de
   playsInline
   preload="metadata"
   aria-hidden="true"
-  className="about-hero-video absolute inset-0 h-full w-full object-cover object-[center_42%] brightness-[0.65]"
+  className="about-hero-video absolute inset-0 h-full w-full object-cover object-[center_42%] "
 >
-  <source src="/assets/video/demo3.mp4" type="video/mp4" />
+  <source src="/assets/video/automation and conveyers.mp4" type="video/mp4" />
 </video>
 
-<div className="absolute inset-0 bg-slate-950/20" />
 
 
-<div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/20" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/65 to-white/40" />
-      <div className="absolute inset-0 bg-white/5" />
-    </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/35 to-transparent" />
+          </div>
 
     <div className="mx-auto flex min-h-[250px] max-w-7xl items-center px-4 py-11 sm:min-h-[290px] sm:px-6 lg:px-8">
       <div className="max-w-3xl">
