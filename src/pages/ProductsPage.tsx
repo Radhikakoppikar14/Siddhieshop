@@ -5,7 +5,7 @@ import eatonLogo from '../assets/eaton_logo.png';
 import mennekesLogo from '../assets/mennekes_logo.png';
 import { Activity, Cable, ChevronRight, Network, Plug, Radio, ShieldCheck, Wrench } from 'lucide-react';
 import { motion, type Variants } from 'motion/react';
-import { BRAND_PAGES, PARTEX_PRODUCTS, type BrandId, type BrandPage } from '../data/brandproducts';
+import { BRAND_PAGES, PARTEX_PRODUCTS, type BrandId, type BrandPage } from '../data/brandProducts';
 
 interface ProductsViewProps {
   onOpenOffer: () => void;
