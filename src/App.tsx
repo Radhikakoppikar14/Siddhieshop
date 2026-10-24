@@ -8,12 +8,11 @@ import { motion, AnimatePresence, MotionConfig, useScroll } from 'motion/react';
 import { Phone, Mail, ArrowUp } from 'lucide-react';
 import { TopHeader } from './components/TopHeader';
 import { ProjectsView } from './components/ProjectsView';
-import { HomePage } from './components/HomePage';
-import { AboutPage } from './components/AboutPage';
-import { ProductsPage } from './components/ProductsPage';
-import { IndustriesPage } from './components/IndustriesPage';
-import { ContactPage } from './components/ContactPage';
-import { RfqPage } from './components/RfqPage';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ProductsPage } from './pages/ProductsPage';
+import { IndustriesPage } from './pages/IndustriesPage';
+import { ContactPage } from './pages/ContactPage';
 import { ContactPopup } from './components/ContactPopup';
 import { ProductsOnOfferModal } from './components/ProductsOnOfferModal';
 import { SiddhiFooter } from './components/SiddhiFooter';
@@ -21,6 +20,7 @@ import { LiveEffects } from './components/LiveEffects';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [selectedBrand, setSelectedBrand] = useState<string>('lapp');
   const [offerModalOpen, setOfferModalOpen] = useState<boolean>(false);
   const [contactPopupService, setContactPopupService] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
@@ -240,7 +240,7 @@ export default function App() {
       });
 
       // 6) Images
-      shell.querySelectorAll<HTMLElement>('main img, footer img').forEach((img) => reveal(img, 'img', 0));
+      shell.querySelectorAll<HTMLElement>('main img:not([data-no-fx]), footer img').forEach((img) => reveal(img, 'img', 0));
     };
 
     let frame = 0;
@@ -307,15 +307,16 @@ export default function App() {
   };
 
   const handleSelectBrand = (brandId: string) => {
+    setSelectedBrand(brandId);
     setActiveTab('products');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <MotionConfig reducedMotion="user">
-    <div ref={shellRef} className="site-shell min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#F43F5E] selection:text-white font-sans antialiased">
+    <div ref={shellRef} className="site-shell min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#2563A6] selection:text-white font-sans antialiased">
       <motion.div
-        className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-[#F43F5E]"
+        className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-[#2563A6]"
         style={{ scaleX: scrollYProgress }}
         aria-hidden="true"
       />
@@ -325,6 +326,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenOffer={() => setOfferModalOpen(true)}
+        onSelectBrand={setSelectedBrand}
       />
 
       <main className="flex-1">
@@ -353,7 +355,7 @@ export default function App() {
 
         {activeTab === 'products' && (
           <div>
-            <ProductsPage onOpenOffer={() => setOfferModalOpen(true)} />
+            <ProductsPage onOpenOffer={() => setOfferModalOpen(true)} onRequestQuote={openContactPage} initialBrand={selectedBrand} />
           </div>
         )}
 
@@ -368,18 +370,7 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'offer' && (
-          <div>
-            <RfqPage
-              onNavigate={(tab) => {
-                setActiveTab(tab);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              onQuote={(label) => setContactPopupService(label)}
-            />
-          </div>
-        )}
-
+        
         {activeTab === 'contact' && (
           <div>
             <ContactPage />
@@ -437,7 +428,7 @@ export default function App() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#F43F5E] text-slate-700 hover:text-blue-600 flex items-center justify-center shadow-sm cursor-pointer transition-colors"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-[#123D73] text-slate-700 hover:text-blue-600 flex items-center justify-center shadow-sm cursor-pointer transition-colors"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-4 h-4" />

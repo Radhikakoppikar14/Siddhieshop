@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
+import { PageVideoHero } from '../components/PageVideoHero';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -20,63 +21,7 @@ export const ContactPage: React.FC = () => {
 
   return (
     <section id="contact" className="bg-white border-b border-slate-200 relative overflow-hidden">
-      {/* Industrial Skyline Banner from Video */}
-      <div className="relative h-56 sm:h-72 bg-[#F0F7FF] overflow-hidden border-b border-slate-200">
-<video
-  autoPlay
-  muted
-  loop
-  playsInline
-  preload="metadata"
-  aria-hidden="true"
-  className="about-hero-video absolute inset-0 h-full w-full object-cover object-[center_42%] "
->
-  <source src="/assets/video/demo3.mp4" type="video/mp4" />
-</video>
-
-
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/75 px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-[#E11D48] shadow-sm backdrop-blur-sm sm:text-xs"
-            >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#F43F5E]" />
-              Get in touch
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight uppercase"
-            >
-              CONTACT US
-            </motion.h1>
-            <div className="w-16 h-1 bg-red-500 mt-3 rounded-full" />
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.2 }}
-              className="mt-3 max-w-xl text-sm leading-relaxed text-slate-700 sm:text-base"
-            >
-              Tell us your cable, wiring or electrical requirement and our team will get back to you with the right solution and a quote.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.3 }}
-              className="mt-3 hidden flex-wrap items-center gap-x-5 gap-y-1 text-xs font-semibold text-[#123D73] sm:flex"
-            >
-              <span className="inline-flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-[#F43F5E]" /> 096200 00947</span>
-              <span className="inline-flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-[#F43F5E]" /> info@siddhikabel.com</span>
-              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-[#F43F5E]" /> Bangalore, India</span>
-            </motion.div>
-          </div>
-        </div>
-      </div>
+      <PageVideoHero eyebrow="Get in touch" title="Contact Us" description="Tell us your cable, wiring or electrical requirement and our team will get back to you with the right solution and a quote." videoSrc="/assets/video/demo3.mp4" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-10">
         {/* Breadcrumb from Video */}
@@ -101,7 +46,7 @@ export const ContactPage: React.FC = () => {
 
             <div className="relative">
               <div className="mb-2 inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600">
-                <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
                 <span>Talk to our team</span>
               </div>
               <h2 className="mb-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
@@ -214,7 +159,7 @@ export const ContactPage: React.FC = () => {
                       message: '',
                     });
                   }}
-                  className="mt-4 px-6 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+                  className="mt-4 px-6 py-2.5 bg-[#D7263D] hover:bg-[#B81E32] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
                 >
                   Send Another Message
                 </button>
@@ -225,7 +170,7 @@ export const ContactPage: React.FC = () => {
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     Send a Message
                   </h2>
-                  <div className="w-12 h-1 bg-red-500 mt-2 mb-6 rounded-full" />
+                  <div className="w-12 h-1 bg-blue-500 mt-2 mb-6 rounded-full" />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
@@ -302,7 +247,7 @@ export const ContactPage: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="px-9 py-3.5 bg-[#F43F5E] hover:bg-[#E11D48] text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-md active:scale-[0.99] transition-all flex items-center gap-2 cursor-pointer"
+                    className="px-9 py-3.5 bg-[#D7263D] hover:bg-[#B81E32] text-white rounded-xl text-xs font-bold uppercase tracking-wider shadow-md active:scale-[0.99] transition-all flex items-center gap-2 cursor-pointer"
                   >
                     <span>SEND NOW</span>
                     <Send className="w-3.5 h-3.5" />

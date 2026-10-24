@@ -20,7 +20,7 @@ export const LiveEffects: React.FC = () => {
     // ----- magnetic buttons -----
     let magnet: HTMLElement | null = null;
     const magnetSelector =
-      'button[class*="bg-[#F43F5E]"], a[class*="bg-[#F43F5E]"], button[class*="bg-red-"], a[class*="bg-red-"], button[class*="bg-[#123D73]"], a[class*="bg-[#123D73]"]';
+      'button[class*="bg-[#D7263D]"], a[class*="bg-[#D7263D]"], button[class*="bg-red-"], a[class*="bg-red-"], button[class*="bg-[#123D73]"], a[class*="bg-[#123D73]"]';
 
     const releaseMagnet = () => {
       if (!magnet) return;
@@ -54,7 +54,7 @@ export const LiveEffects: React.FC = () => {
     };
 
     // ----- spark burst on click -----
-    const COLORS = ['#F43F5E', '#2563A6', '#93C5FD', '#FDA4B4'];
+    const COLORS = ['#2563A6', '#2563A6', '#93C5FD', '#D3DAE3'];
     const onDown = (e: PointerEvent) => {
       const target = e.target instanceof Element ? e.target : null;
       if (target?.closest('input, textarea, select')) return;
@@ -107,7 +107,7 @@ export const LiveEffects: React.FC = () => {
       <motion.div
         aria-hidden="true"
         className="pointer-events-none fixed top-0 z-[62] h-[3px] w-16 -translate-x-full bg-gradient-to-r from-transparent via-white/80 to-white"
-        style={{ left: sparkLeft, boxShadow: '0 0 14px 3px rgba(255,255,255,0.9), 0 0 24px 6px rgba(244,63,94,0.6)' }}
+        style={{ left: sparkLeft, boxShadow: '0 0 14px 3px rgba(255,255,255,0.9), 0 0 24px 6px rgba(37, 99, 166,0.6)' }}
       />
     </>
   );

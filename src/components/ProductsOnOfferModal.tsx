@@ -68,7 +68,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
   return (
     <AnimatePresence>
       {(asPage || isOpen) && (
-        <div className={asPage ? 'bg-[#F0F7FF] px-3 py-6 sm:px-6 sm:py-10' : 'fixed inset-0 z-[100] overflow-y-auto bg-[#0B2F5B]/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6'}>
+        <div className={asPage ? 'bg-[#F4F6F9] px-3 py-6 sm:px-6 sm:py-10' : 'fixed inset-0 z-[100] overflow-y-auto bg-[#0B2F5B]/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6'}>
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -92,7 +92,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                   </motion.div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F43F5E] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563A6] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
                         <Sparkles className="h-3 w-3" /> Limited Stock
                       </span>
                       <span className="hidden text-[10px] font-mono uppercase tracking-widest text-white/80 sm:inline">
@@ -122,7 +122,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
             </div>
 
             {/* Content Body */}
-            <div className={`p-6 space-y-6 text-xs bg-[#F0F7FF] ${asPage ? '' : 'overflow-y-auto flex-1 min-h-0'}`}>
+            <div className={`p-6 space-y-6 text-xs bg-[#F4F6F9] ${asPage ? '' : 'overflow-y-auto flex-1 min-h-0'}`}>
               {orderSent ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -157,7 +157,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                       setOrderSent(false);
                       onClose();
                     }}
-                    className="mt-4 px-8 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded-xl font-bold uppercase tracking-wider text-xs transition-colors shadow-sm"
+                    className="mt-4 px-8 py-2.5 bg-[#D7263D] hover:bg-[#B81E32] text-white rounded-xl font-bold uppercase tracking-wider text-xs transition-colors shadow-sm"
                   >
                     Close &amp; Return
                   </button>
@@ -165,7 +165,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
               ) : (
                 <>
                   {/* Greetings as in Video */}
-                  <div className="relative overflow-hidden bg-white p-5 pl-6 rounded-2xl border border-blue-100 shadow-[0_14px_34px_-22px_rgba(18,61,115,0.35)] space-y-2 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-[#F43F5E]">
+                  <div className="relative overflow-hidden bg-white p-5 pl-6 rounded-2xl border border-blue-100 shadow-[0_14px_34px_-22px_rgba(18,61,115,0.35)] space-y-2 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-[#2563A6]">
                     <div className="font-bold text-slate-900 text-sm">Dear Customers,</div>
                     <div className="font-semibold text-slate-800">Greetings...</div>
                     <p className="text-slate-600 leading-relaxed text-xs">
@@ -216,7 +216,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                   <div className="border border-blue-100 bg-white rounded-2xl overflow-hidden shadow-[0_18px_40px_-26px_rgba(18,61,115,0.3)]">
                     <div className="overflow-x-auto">
                       <table className="w-full text-left text-xs">
-                        <thead className="bg-[#E7F0FA] text-blue-800 uppercase font-mono text-[11px] border-b border-blue-100">
+                        <thead className="bg-[#ECEFF3] text-blue-800 uppercase font-mono text-[11px] border-b border-blue-100">
                           <tr>
                             <th className="py-3 px-3 text-center">Select</th>
                             <th className="py-3 px-3 font-semibold">Sl. No</th>
@@ -237,7 +237,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                                 key={item.partNo}
                                 onClick={() => toggleSelect(item.partNo)}
                                 className={`cursor-pointer transition-colors ${
-                                  isSelected ? 'bg-blue-50 shadow-[inset_4px_0_0_#2563A6]' : 'hover:bg-blue-50/50 hover:shadow-[inset_4px_0_0_#C3D3E4]'
+                                  isSelected ? 'bg-blue-50 shadow-[inset_4px_0_0_#2563A6]' : 'hover:bg-blue-50/50 hover:shadow-[inset_4px_0_0_#CBD2DB]'
                                 }`}
                               >
                                 <td className="py-3 px-3 text-center">
@@ -278,7 +278,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                   {/* Real-time Order Summary Bar */}
                   <div className="p-4 bg-[#123D73] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 font-mono shadow-[0_18px_36px_-20px_rgba(18,61,115,0.5)]">
                     <div className="flex items-center gap-3">
-                      <span className="px-2.5 py-1 bg-[#F43F5E] rounded-md text-xs font-bold text-white shadow">
+                      <span className="px-2.5 py-1 bg-[#2563A6] rounded-md text-xs font-bold text-white shadow">
                         {selectedCount} ITEMS SELECTED
                       </span>
                       <span className="text-xs text-white/85">
@@ -360,7 +360,7 @@ export const ProductsOnOfferModal: React.FC<ProductsOnOfferModalProps> = ({ isOp
                         whileTap={{ scale: 0.98 }}
                         type="submit"
                         disabled={selectedCount === 0}
-                        className="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white rounded-xl font-bold uppercase tracking-wider hover:bg-red-800 disabled:opacity-40 transition-all shadow-md cursor-pointer"
+                        className="inline-flex items-center gap-2 px-8 py-3 bg-[#D7263D] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[#B81E32] disabled:opacity-40 transition-all shadow-md cursor-pointer"
                       >
                         <Send className="w-4 h-4" />
                         <span>Send Order Requirement</span>

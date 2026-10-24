@@ -77,11 +77,11 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
               </button>
 
               <div className="relative flex items-center gap-3 pr-10">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-600 shadow-lg shadow-red-950/30">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-950/30">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="mb-1 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-red-200">
+                  <div className="mb-1 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-blue-200">
                     <ShieldCheck className="h-3.5 w-3.5" />
                     Siddhi Kabel Support
                   </div>
@@ -101,7 +101,7 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
                 href="tel:09620000947"
                 className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50/60 hover:shadow-md"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-red-700 group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-blue-700 group-hover:text-white">
                   <Phone className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -116,7 +116,7 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
                 href={`mailto:info@siddhikabel.com?subject=${emailSubject}`}
                 className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50/60 hover:shadow-md"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-red-700 group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#123D73] text-sky-200 transition-colors group-hover:bg-blue-700 group-hover:text-white">
                   <Mail className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -129,7 +129,7 @@ export const ContactPopup: React.FC<ContactPopupProps> = ({
               <button
                 type="button"
                 onClick={onOpenContactPage}
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#F43F5E] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-900/15 transition-all hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F43F5E]"
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#D7263D] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#D7263D]/20 transition-all hover:-translate-y-0.5 hover:bg-[#B81E32] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123D73]"
               >
                 Open contact form
                 <ArrowRight className="h-4 w-4" />

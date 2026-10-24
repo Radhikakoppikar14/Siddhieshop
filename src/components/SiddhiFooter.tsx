@@ -37,7 +37,7 @@ const productAreas = [
   },
 ];
 
-const partnerBrands = ['LAPP', 'EATON', 'HAVELLS', 'HAGER', 'MENNEKES', 'JEF ECO SAFE'];
+const partnerBrands = ['LAPP', 'EATON', 'MENNEKES', 'PARTEX'];
 
 export const SiddhiFooter: React.FC<SiddhiFooterProps> = ({ onNavigate }) => {
   return (

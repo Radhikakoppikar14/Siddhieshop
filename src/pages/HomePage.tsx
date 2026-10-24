@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useInView, useScroll, useTransform, type Variants } from 'motion/react';
+import lappLogo from '../assets/lapp_logo.png';
+import eatonLogo from '../assets/eaton_logo.png';
+import mennekesLogo from '../assets/mennekes_logo.png';
+import partexLogo from '../assets/partex_logo.png';
 import { ArrowRight, ArrowUpRight, Award, ChevronLeft, ChevronRight, Cpu, Maximize2, Play, Shield, ShieldCheck, Wrench, X, Zap, ShieldAlert, MapPin, CheckCircle } from 'lucide-react';
 
 interface HomePageProps {
@@ -38,7 +42,7 @@ const Heading: React.FC<{ eyebrow: string; title: string; light?: boolean; cente
   <motion.div initial="hidden" whileInView="visible" viewport={vp} variants={stagger} className={center ? 'text-center' : ''}>
     <motion.div variants={rise} className={`mb-2 font-mono text-xs font-semibold uppercase tracking-wider ${light ? 'text-sky-200' : 'text-slate-500'}`}>{eyebrow}</motion.div>
     <motion.h2 variants={rise} className={`text-3xl font-extrabold tracking-tight sm:text-4xl ${light ? 'text-white' : 'text-[#0B2F5B]'}`}>{title}</motion.h2>
-    <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.5 } } }} className={`mt-3 h-1 w-16 rounded-full bg-[#F43F5E] ${center ? 'mx-auto origin-center' : 'origin-left'}`} />
+    <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.5 } } }} className={`mt-3 h-1 w-16 rounded-full bg-[#D7263D] ${center ? 'mx-auto origin-center' : 'origin-left'}`} />
   </motion.div>
 );
 
@@ -55,18 +59,14 @@ const services = [
 ];
 
 const brands = [
-  { id: 'lapp', name: 'LAPP', tagline: '', color: '#EA580C', category: 'cables', description: 'Lapp Cables produces cables and conductors for different industries and markets.' },
-  { id: 'havells', name: 'HAVELLS', tagline: '', color: '#F43F5E', category: 'switchgear', description: 'Havells India Limited is a leading Fast Moving Electrical Goods (FMEG) Company.' },
-  { id: 'eaton', name: 'EATON', tagline: 'Powering Business Worldwide', color: '#0284C7', category: 'switchgear', description: 'Eaton produces a broad range of products and services, for power and control, applications.' },
-  { id: 'jef', name: 'JEF TECHNO', tagline: '', color: '#0284C7', category: 'earthing', description: 'Comprehensive solutions for maintaince free grounding and lighting protection system.' },
-  { id: 'mennekes', name: 'MENNEKES®', tagline: 'Plugs for the world', color: '#F43F5E', category: 'plugs', description: 'MENNEKES is a leading manufacturer of industrial plugs and sockets for various applications.' },
-  { id: 'hager', name: ':hager', tagline: '', color: '#0284C7', category: 'switchgear', description: 'Hager is the specialist for electrical installations in residential and commercial sectors.' },
-  { id: 'luker', name: 'LUKER®', tagline: '', color: '#2563A6', category: 'lighting', description: 'Manufactures cost effective LED solutions in India for domestic and commercial needs.' },
-  { id: 'neptune', name: 'NEPTUNE', tagline: 'NAME THAT CARRIES POWER', color: '#0284C7', category: 'switchgear', description: 'Neptune India offers global products and solutions in the field of Power & Energy based on latest technology.' },
+  { id: 'lapp', name: 'LAPP', tagline: '', color: '#EA580C', category: 'cables', logo: lappLogo, description: 'Lapp Cables produces cables and conductors for different industries and markets.' },
+  { id: 'eaton', name: 'EATON', tagline: '', color: '#0284C7', category: 'switchgear', logo: eatonLogo, description: 'Eaton produces a broad range of products and services, for power and control, applications.' },
+  { id: 'mennekes', name: 'MENNEKES®', tagline: '', color: '#E11D48', category: 'plugs', logo: mennekesLogo, description: 'MENNEKES is a leading manufacturer of industrial plugs and sockets for various applications.' },
+  { id: 'partex', name: 'PARTEX', tagline: '', color: '#1E293B', category: 'marking', logo: partexLogo, description: 'Partex is a Swedish manufacturer of wire, cable and component marking systems for clear industrial identification.' },
 ];
 const categories = [
-  { id: 'all', label: 'All Brands (8)' }, { id: 'cables', label: 'Cables & Conduits' }, { id: 'switchgear', label: 'Switchgear & Power' },
-  { id: 'plugs', label: 'Plugs & Sockets' }, { id: 'earthing', label: 'Earthing Systems' }, { id: 'lighting', label: 'LED Lighting' },
+  { id: 'all', label: 'All Brands (4)' }, { id: 'cables', label: 'Cables & Conduits' }, { id: 'switchgear', label: 'Switchgear & Power' },
+  { id: 'plugs', label: 'Plugs & Sockets' }, { id: 'marking', label: 'Marking Systems' },
 ];
 
 const whyChoosePoints = [
@@ -83,6 +83,13 @@ const whyChoosePoints = [
 const clientNames = ['ACE Designers', 'AMS', 'Apicom', 'Bharat Electronics Limited (BEL)', 'BEML Limited'];
 
 export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClick }) => {
+  // warm the browser cache so the Recent Projects photo is ready before the user scrolls to it
+  useEffect(() => {
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = '/assets/project_grounding.jpg';
+  }, []);
+
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [activeService, setActiveService] = useState(0);
@@ -101,7 +108,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
   return (
     <div className="bg-white">
       {/* ===== 1. HERO: framed video card + text, centered in the page container ===== */}
-      <section className="relative overflow-hidden bg-[#F0F7FF]" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <section className="relative overflow-hidden bg-[#F4F6F9]" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[52%] bg-gradient-to-r from-[#CFE1F5] via-[#DCEAF8] to-[#E8F1FB] lg:block [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]" />
         <motion.div aria-hidden="true" className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-blue-200/50 blur-3xl" animate={{ x: [0, 40, 0], y: [0, 30, 0] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }} />
         <motion.div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-rose-100/70 blur-3xl" animate={{ x: [0, -40, 0], y: [0, -30, 0] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
@@ -109,18 +116,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
           <div className="lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div key={slide.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.5 }}>
-                <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="mb-5 h-1.5 w-20 origin-left rounded-full bg-[#F43F5E]" />
+                <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="mb-5 h-1.5 w-20 origin-left rounded-full bg-[#D7263D]" />
                 <h1 className="text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-[#0B2F5B] sm:text-4xl lg:text-5xl">{slide.title}</h1>
                 <p className="mt-3 text-base font-medium text-slate-700 sm:text-lg">{slide.subtitle}</p>
               </motion.div>
             </AnimatePresence>
             <div className="mt-6 flex items-center gap-4">
-              <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} onClick={prev} aria-label="Previous Slide" className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-[#F43F5E] cursor-pointer"><ChevronLeft className="h-5 w-5" /></motion.button>
-              <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} onClick={next} aria-label="Next Slide" className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-[#F43F5E] cursor-pointer"><ChevronRight className="h-5 w-5" /></motion.button>
+              <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} onClick={prev} aria-label="Previous Slide" className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-[#123D73] cursor-pointer"><ChevronLeft className="h-5 w-5" /></motion.button>
+              <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} onClick={next} aria-label="Next Slide" className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-[#123D73] cursor-pointer"><ChevronRight className="h-5 w-5" /></motion.button>
               <div className="flex items-center gap-2">
                 {slides.map((sl, i) => (
                   <button key={sl.id} onClick={() => setCurrent(i)} aria-label={`Go to slide ${i + 1}`} className="py-2 cursor-pointer">
-                    <div className={`h-1.5 rounded-full transition-all duration-300 ${current === i ? 'w-10 bg-[#F43F5E]' : 'w-3 bg-slate-300 hover:bg-slate-400'}`} />
+                    <div className={`h-1.5 rounded-full transition-all duration-300 ${current === i ? 'w-10 bg-[#D7263D]' : 'w-3 bg-slate-300 hover:bg-slate-400'}`} />
                   </button>
                 ))}
               </div>
@@ -140,7 +147,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div aria-hidden="true" className="absolute -bottom-2.5 -right-2.5 -z-10 h-full w-full rounded-2xl border-2 border-[#F43F5E]/30" />
+            <div aria-hidden="true" className="absolute -bottom-2.5 -right-2.5 -z-10 h-full w-full rounded-2xl border-2 border-[#2563A6]/30" />
           </motion.div>
         </div>
 
@@ -162,14 +169,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
         <div className="mx-auto max-w-4xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={vp} variants={stagger} className="space-y-5">
             <motion.div variants={rise} className="inline-flex items-center gap-2 rounded border border-slate-200 bg-slate-100 px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#F43F5E]" />We Are Siddhi Kabel
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#D7263D]" />We Are Siddhi Kabel
             </motion.div>
             <motion.h2 variants={stagger} className="text-4xl font-extrabold leading-tight tracking-tight text-[#0B2F5B] sm:text-5xl lg:text-6xl">
               {['Transforming', 'Indian', 'Industry', 'With', 'Innovative', 'Products'].map((w) => (
                 <motion.span key={w} variants={word} className="mr-[0.22em] inline-block last:mr-0">{w}</motion.span>
               ))}
             </motion.h2>
-            <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.5 } } }} className="mx-auto h-1 w-16 origin-center rounded-full bg-[#F43F5E]" />
+            <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.5 } } }} className="mx-auto h-1 w-16 origin-center rounded-full bg-[#D7263D]" />
             <motion.p variants={rise} className="text-base font-bold leading-snug text-slate-900 sm:text-lg">Siddhi Kabel Corporation Private Limited is one of the leading and reliable suppliers of world class Industrial Electrical, Automation &amp; Safety Products.</motion.p>
             <motion.p variants={rise} className="text-sm leading-relaxed text-slate-600 sm:text-base">We at Siddhi Kabel specialize in providing solutions for High quality industrial products, Our primary focus is to service the needs of our customers for high quality products and services, with more than 15 years of experience in industrial Electrical field and association with leading national and multinational customers &amp; Suppliers, Siddhi Kabel offers superior quality products coupled with best technical support.</motion.p>
           </motion.div>
@@ -203,7 +210,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
       </section>
 
       {/* ===== 3. SERVICES: expanding accordion panels (hover / tap to open) ===== */}
-      <section className="bg-[#F0F7FF] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="bg-[#F4F6F9] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <Heading eyebrow="We Are Siddhi Kabel" title="Services For Industries" />
@@ -254,12 +261,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-slate-900/30 via-transparent to-transparent">
               <div className="relative flex items-center justify-center">
                 <motion.div animate={{ scale: [1, 1.5, 2], opacity: [0.7, 0.3, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }} className="pointer-events-none absolute h-20 w-20 rounded-full bg-white/40" />
-                <motion.div animate={{ scale: [1, 1.4, 1.8], opacity: [0.6, 0.25, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut', delay: 0.7 }} className="pointer-events-none absolute h-20 w-20 rounded-full bg-[#F43F5E]/50" />
+                <motion.div animate={{ scale: [1, 1.4, 1.8], opacity: [0.6, 0.25, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut', delay: 0.7 }} className="pointer-events-none absolute h-20 w-20 rounded-full bg-[#2563A6]/50" />
                 <motion.span whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.92 }} className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-2xl sm:h-20 sm:w-20"><Play className="ml-1 h-7 w-7 fill-current text-blue-600 sm:h-9 sm:w-9" /></motion.span>
               </div>
             </div>
             <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl border border-white/60 bg-white/85 px-3.5 py-2 font-mono text-xs text-slate-800 backdrop-blur-md">
-              <span className="flex items-center gap-2"><span className="h-2 w-2 animate-ping rounded-full bg-red-500" />Corporate Showcase Video</span>
+              <span className="flex items-center gap-2"><span className="h-2 w-2 animate-ping rounded-full bg-blue-500" />Corporate Showcase Video</span>
               <span className="text-slate-500 group-hover:text-blue-600">Watch on YouTube</span>
             </div>
           </motion.button>
@@ -268,9 +275,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
             initial="hidden" whileInView="visible" viewport={vp} variants={{ hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, staggerChildren: 0.1, delayChildren: 0.15 } } }}
             className="space-y-5 lg:col-span-6"
           >
-            <motion.div variants={rise} className="inline-flex items-center gap-2 rounded border border-slate-200 bg-slate-100 px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-[#F43F5E]" />We Are Siddhi Kabel</motion.div>
+            <motion.div variants={rise} className="inline-flex items-center gap-2 rounded border border-slate-200 bg-slate-100 px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-[#D7263D]" />We Are Siddhi Kabel</motion.div>
             <motion.h2 variants={rise} className="text-3xl font-extrabold leading-tight tracking-tight text-[#0B2F5B] sm:text-4xl">About Siddhi Kabel</motion.h2>
-            <motion.div variants={rise} className="h-1 w-16 rounded-full bg-[#F43F5E]" />
+            <motion.div variants={rise} className="h-1 w-16 rounded-full bg-[#D7263D]" />
             <motion.p variants={rise} className="text-sm font-semibold leading-relaxed text-slate-900">Siddhi Kabel was established in the year 2008 by professionals with experience of more than 15 years in providing solutions for various needs of high quality Industrial electrical, automation and safety products.</motion.p>
             <motion.p variants={rise} className="text-sm leading-relaxed text-slate-600">Siddhi Kabel offers wide range of products like Cables, Glands, Conduits, Connectors, Circuit breakers – MCB, ELCB, DB, Safety relays, Isolators, Maintenance free Electrical earthing solutions, Lightning arrestors and much more, We also help customer in selecting the right products for different applications and standards.</motion.p>
             <motion.div variants={rise} className="flex flex-wrap gap-2 font-mono text-xs">
@@ -282,14 +289,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
       </section>
 
       {/* ===== 5. BRANDS: sticky title column + interactive list rows ===== */}
-      <section className="border-y border-slate-200 bg-[#F0F7FF] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="border-y border-slate-200 bg-[#F4F6F9] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="space-y-6 lg:sticky lg:top-8">
               <Heading eyebrow="Authorized Distribution Network" title="Brands we deal with" />
               <div className="flex flex-wrap gap-1.5">
                 {categories.map((c) => (
-                  <button key={c.id} type="button" onClick={() => setCategory(c.id)} className={`rounded-lg border px-3 py-1.5 text-xs transition-all cursor-pointer ${category === c.id ? 'border-[#F43F5E] bg-[#F43F5E] font-bold text-white shadow-md' : 'border-slate-200 bg-white font-medium text-slate-600 hover:border-blue-200 hover:text-slate-900'}`}>{c.label}</button>
+                  <button key={c.id} type="button" onClick={() => setCategory(c.id)} className={`rounded-lg border px-3 py-1.5 text-xs transition-all cursor-pointer ${category === c.id ? 'border-[#123D73] bg-[#123D73] font-bold text-white shadow-md' : 'border-slate-200 bg-white font-medium text-slate-600 hover:border-blue-200 hover:text-slate-900'}`}>{c.label}</button>
                 ))}
               </div>
             </div>
@@ -299,13 +306,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
               <motion.li key={b.id} variants={rise}>
                 <button type="button" onClick={() => onSelectBrand(b.id)} className="group relative flex w-full items-center gap-5 px-5 py-5 text-left transition-colors hover:bg-slate-50 cursor-pointer sm:px-7">
                   <span className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 transition-transform duration-300 group-hover:scale-y-100" style={{ backgroundColor: b.color }} />
-                  <div className="w-36 shrink-0 sm:w-48">
-                    <div className="text-xl font-extrabold tracking-tight transition-transform duration-300 group-hover:translate-x-1 sm:text-2xl" style={{ color: b.color }}>{b.name}</div>
+                  <div className="w-36 shrink-0 sm:w-52">
+                    <img src={b.logo} alt={b.name} className="h-10 w-auto max-w-full object-contain object-left transition-transform duration-300 group-hover:translate-x-1 sm:h-12" />
                     {b.tagline && <div className="mt-0.5 font-mono text-[10px] font-medium text-slate-500">{b.tagline}</div>}
                   </div>
                   <p className="flex-1 text-xs leading-relaxed text-slate-600 group-hover:text-slate-800">{b.description}</p>
                   <div className="flex shrink-0 flex-col items-center gap-1">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-400 transition-all group-hover:border-[#F43F5E] group-hover:bg-[#F43F5E] group-hover:text-white"><ArrowUpRight className="h-4 w-4" /></span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-400 transition-all group-hover:border-[#2563A6] group-hover:bg-[#2563A6] group-hover:text-white"><ArrowUpRight className="h-4 w-4" /></span>
                     <span className="hidden font-mono text-[10px] font-medium text-slate-400 group-hover:text-blue-600 sm:block">Explore Range</span>
                   </div>
                 </button>
@@ -318,18 +325,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
       {/* ===== 6. WHY CHOOSE US: network diagram on top, numbered tiles below ===== */}
       <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-5"><Heading eyebrow="" title="Why Choose Us" /></div>
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp} transition={{ duration: 0.6 }} className="lg:col-span-7">
-              <div className="group w-full rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md sm:p-5">
-                <img src="/assets/authorized_supply_network.svg" alt="Authorized multi-brand portfolio showing LAPP, Eaton, Havells, Hager, Luminis, and Mennekes product ranges" className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.015]" />
-              </div>
-            </motion.div>
-          </div>
+          <Heading eyebrow="" title="Why Choose Us" />
           <motion.ul initial="hidden" whileInView="visible" viewport={vp} variants={stagger} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyChoosePoints.map((p, i) => (
-              <motion.li key={i} variants={rise} whileHover={{ y: -8 }} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-[#F0F7FF] p-6 transition-colors hover:border-blue-200 hover:bg-white hover:shadow-lg">
-                <CheckCircle className="relative mb-3 h-5 w-5 text-[#F43F5E] transition-transform group-hover:scale-125 group-hover:text-blue-600" />
+              <motion.li key={i} variants={rise} whileHover={{ y: -8 }} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-[#F4F6F9] p-6 transition-colors hover:border-blue-200 hover:bg-white hover:shadow-lg">
+                <CheckCircle className="relative mb-3 h-5 w-5 text-[#D7263D] transition-transform group-hover:scale-125 group-hover:text-blue-600" />
                 <span className="relative block text-sm leading-snug text-slate-700 group-hover:font-semibold group-hover:text-slate-900">{p}</span>
               </motion.li>
             ))}
@@ -342,12 +342,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
         <div className="mx-auto max-w-7xl">
           <div className="mb-10"><Heading eyebrow="We Are Siddhi Kabel" title="Recent Projects" /></div>
           <div className="grid items-stretch gap-8 lg:grid-cols-12">
-            <motion.div initial={{ clipPath: 'inset(0 100% 0 0 round 16px)' }} whileInView={{ clipPath: 'inset(0 0% 0 0 round 16px)' }} viewport={vp} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }} className="group relative overflow-hidden rounded-2xl border border-slate-200 shadow-sm lg:col-span-7">
-              <motion.img initial={{ scale: 1.18 }} whileInView={{ scale: 1 }} viewport={vp} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }} src="/assets/project_grounding.jpg" alt="Grounding installation site - GE India, Toyota, NAL, Orb Energy" className="h-full min-h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <motion.div initial={{ clipPath: 'inset(0 100% 0 0 round 16px)' }} whileInView={{ clipPath: 'inset(0 0% 0 0 round 16px)' }} viewport={{ once: true, margin: '0px 0px 200px 0px' }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm lg:col-span-7">
+              <motion.img initial={{ scale: 1.1 }} whileInView={{ scale: 1 }} viewport={{ once: true, margin: '0px 0px 200px 0px' }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }} src="/assets/project_grounding.jpg" alt="Grounding installation site - GE India, Toyota, NAL, Orb Energy" loading="eager" decoding="async" fetchPriority="high" className="h-full min-h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <motion.div initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp} transition={{ delay: 0.7 }} className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md bg-white/95 px-2.5 py-1 font-mono text-[11px] font-bold text-blue-600 shadow-2xs"><MapPin className="h-3.5 w-3.5" /><span>Bangalore Facility Site</span></motion.div>
             </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={vp} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } } }} className="space-y-4 rounded-2xl border border-slate-200 bg-[#F0F7FF] p-7 lg:col-span-5">
-              <motion.div variants={rise} className="inline-flex items-center gap-1.5 rounded bg-red-100/70 px-2.5 py-1 font-mono text-xs font-bold text-blue-600"><ShieldCheck className="h-3.5 w-3.5" />Turnkey Installation</motion.div>
+            <motion.div initial="hidden" whileInView="visible" viewport={vp} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } } }} className="space-y-4 rounded-2xl border border-slate-200 bg-[#F4F6F9] p-7 lg:col-span-5">
+              <motion.div variants={rise} className="inline-flex items-center gap-1.5 rounded bg-blue-100/70 px-2.5 py-1 font-mono text-xs font-bold text-blue-600"><ShieldCheck className="h-3.5 w-3.5" />Turnkey Installation</motion.div>
               <motion.h3 variants={rise} className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Grounding</motion.h3>
               <motion.div variants={rise} className="rounded-xl border border-slate-200 bg-white p-3.5 text-xs font-bold uppercase leading-snug tracking-wide text-slate-800 shadow-2xs">GE INDIA and TOYOTA, NATIONAL AEROSPACE LABORATORY (NAL), ORB Energy</motion.div>
               <motion.p variants={rise} className="text-sm leading-relaxed text-slate-600">Supply and installation of Grounding systems in Bangalore facility.</motion.p>
@@ -358,9 +358,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
       </section>
 
       {/* ===== 8. CLIENTS: logo strip + endlessly scrolling name ticker ===== */}
-      <section className="relative overflow-hidden bg-[#F0F7FF] py-14 lg:py-20">
-        <motion.div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-100/60 blur-3xl" animate={{ scale: [0.92, 1.08, 0.92], opacity: [0.36, 0.72, 0.36] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }} />
+      <section className="relative overflow-hidden bg-[#F4F6F9] py-14 lg:py-20">
+        <motion.div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/60 blur-3xl" animate={{ scale: [0.92, 1.08, 0.92], opacity: [0.36, 0.72, 0.36] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }} />
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mb-8"><Heading eyebrow="Trusted By" title="Our Clients" center /></div>
           <motion.div initial={{ clipPath: 'inset(0 0 100% 0 round 12px)' }} whileInView={{ clipPath: 'inset(0 0 0% 0 round 12px)' }} viewport={vp} transition={{ duration: 1.05, ease: [0.22, 1, 0.36, 1] }} className="group relative overflow-hidden rounded-2xl border border-white/80 bg-white p-6 shadow-xl sm:p-10">
             <motion.img initial={{ opacity: 0.65, scale: 1.08 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp} transition={{ duration: 1.2 }} src="/assets/clients_ace_beml.jpg" alt="ACE Designers, AMS, Apicom, Bharat Electronics Limited and BEML" className="mx-auto h-auto max-h-28 w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.015] sm:max-h-36 lg:max-h-44" />
             <motion.div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/55 to-transparent mix-blend-screen" animate={{ x: ['-150%', '430%'] }} transition={{ duration: 1.35, delay: 1.25, repeat: Infinity, repeatDelay: 5.5, ease: 'easeInOut' }} />
@@ -393,7 +394,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectBrand, onContactClic
             <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-slate-950/70 p-4 backdrop-blur-sm sm:p-8" onClick={() => setVideoOpen(false)}>
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="relative my-auto w-full max-w-4xl overflow-hidden rounded-2xl border border-white/20 bg-slate-950 shadow-2xl" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900 p-3 text-white">
-                  <span className="flex items-center gap-2 font-mono text-xs font-bold"><span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />Siddhi Kabel Corporate Showcase</span>
+                  <span className="flex items-center gap-2 font-mono text-xs font-bold"><span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />Siddhi Kabel Corporate Showcase</span>
                   <button onClick={() => setVideoOpen(false)} aria-label="Close video" className="rounded-lg p-1.5 text-slate-400 hover:text-white cursor-pointer"><X className="h-5 w-5" /></button>
                 </div>
                 <div className="aspect-video bg-slate-950">

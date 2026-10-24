@@ -3,19 +3,21 @@ import { Phone, Mail, ChevronDown, Menu, X, Tag, Sparkles, ExternalLink } from '
 import { motion, AnimatePresence } from 'motion/react';
 
 // Optional: put an external RFQ website address here, e.g. 'https://rfq.siddhikabel.com'.
-// While it is empty, the button opens the Products on Offer page inside this site.
+// While it is empty, the button does nothing (demo button for now).
 const RFQ_SITE_URL = '';
 
 interface TopHeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onOpenOffer: () => void;
+  onSelectBrand?: (brandId: string) => void;
 }
 
 export const TopHeader: React.FC<TopHeaderProps> = ({
   activeTab,
   setActiveTab,
   onOpenOffer,
+  onSelectBrand,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
@@ -38,13 +40,9 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
 
   const productBrands = [
     { id: 'lapp', label: 'Lapp' },
-    { id: 'havells', label: 'Havells' },
     { id: 'eaton', label: 'Eaton - Moeller' },
-    { id: 'jef', label: 'JEF Eco Safe' },
     { id: 'mennekes', label: 'Mennekes' },
-    { id: 'hager', label: 'Hager' },
-    { id: 'luker', label: 'Luker' },
-    { id: 'neptune', label: 'Neptune' },
+    { id: 'partex', label: 'Partex' },
   ];
 
   const handleNavClick = (tab: string) => {
@@ -62,7 +60,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           {/* Tagline */}
           <div className="flex items-center gap-2 text-[11px] font-medium tracking-wide text-white/90 text-center sm:text-left">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
             <span>Dependable Electrical Solutions for your Industrial Requirements</span>
           </div>
 
@@ -75,7 +73,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
               whileTap={{ scale: 0.98 }}
               className="group flex items-center gap-1.5 text-white/90 transition-colors hover:text-white"
             >
-              <Phone className="w-3.5 h-3.5 text-red-500 group-hover:scale-110 transition-transform" />
+              <Phone className="w-3.5 h-3.5 text-blue-500 group-hover:scale-110 transition-transform" />
               <span>096200 00947, 098860 58511</span>
             </motion.a>
 
@@ -138,7 +136,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                     {isActive && (
                       <motion.div
                         layoutId="activeNavUnderline"
-                        className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#F43F5E] rounded-full"
+                        className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#2563A6] rounded-full"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -153,14 +151,17 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                         transition={{ duration: 0.15 }}
                         className="absolute top-full left-0 w-60 bg-white/95 backdrop-blur-xl text-slate-700 rounded-2xl shadow-[0_24px_50px_-20px_rgba(47,91,142,0.5)] py-2 z-50 border border-blue-100 mt-2 overflow-hidden"
                       >
-                        <div className="px-4 py-2 text-[10px] font-mono font-semibold text-blue-600 uppercase tracking-widest bg-[#E7F0FA] border-b border-blue-100 mb-1">
+                        <div className="px-4 py-2 text-[10px] font-mono font-semibold text-blue-600 uppercase tracking-widest bg-[#ECEFF3] border-b border-blue-100 mb-1">
                           Authorized Brands
                         </div>
                         {productBrands.map((b) => (
                           <button
                             key={b.id}
-                            onClick={() => handleNavClick('products')}
-                            className="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:bg-blue-50 hover:pl-5 shadow-[inset_0_0_0_0_#F43F5E] hover:shadow-[inset_3px_0_0_0_#F43F5E] transition-all duration-200 flex items-center justify-between group cursor-pointer"
+                            onClick={() => {
+                              onSelectBrand?.(b.id);
+                              handleNavClick('products');
+                            }}
+                            className="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-blue-700 hover:bg-blue-50 hover:pl-5 shadow-[inset_0_0_0_0_#2563A6] hover:shadow-[inset_3px_0_0_0_#2563A6] transition-all duration-200 flex items-center justify-between group cursor-pointer"
                           >
                             <span>{b.label}</span>
                             <span className="text-[11px] text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all">
@@ -187,7 +188,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
                 {isActive && (
                   <motion.div
                     layoutId="activeNavUnderline"
-                    className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#F43F5E] rounded-full"
+                    className="absolute -bottom-1 inset-x-0 h-0.5 bg-[#2563A6] rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -196,16 +197,16 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           })}
         </nav>
 
-        {/* Primary Action Button: Exactly styled as in video with vibrant red #F43F5E */}
+        {/* Primary Action Button: Exactly styled as in video with vibrant red #2563A6 */}
         <div className="flex items-center gap-3">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
+              // Demo button for now: nothing happens until RFQ_SITE_URL is set above.
               if (RFQ_SITE_URL) window.open(RFQ_SITE_URL, '_blank', 'noopener,noreferrer');
-              else handleNavClick('offer');
             }}
-            className="pulse-glow inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#F43F5E] hover:bg-[#E11D48] rounded-lg shadow-sm transition-all whitespace-nowrap cursor-pointer"
+            className="pulse-glow inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#D7263D] hover:bg-[#B81E32] rounded-lg shadow-sm transition-all whitespace-nowrap cursor-pointer"
           >
             <span>Check our RFQ Site</span>
             <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />

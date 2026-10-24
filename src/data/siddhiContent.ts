@@ -1,70 +1,3 @@
-export interface DealBrand {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  highlights: string[];
-}
-
-export const BRANDS_WE_DEAL_WITH: DealBrand[] = [
-  {
-    id: 'lapp',
-    name: 'LAPP',
-    category: 'Cables & Conductors',
-    description: 'Lapp Cables produces cables and conductors for different industries and markets: mechanical and systems engineering, the automotive industry, MSR technology, electrical and installations engineering, EDC and more.',
-    highlights: ['ÖLFLEX® Power & Control', 'UNITRONIC® Data Cables', 'ETHERLINE® Ethernet', 'SKINTOP® Glands', 'EPIC® Connectors']
-  },
-  {
-    id: 'eaton',
-    name: 'EATON - Moeller',
-    category: 'Power Quality & Switchgear',
-    description: 'Eaton produces a broad range of products and solutions in the field of Power & Energy, Industrial switchgears and safety products.',
-    highlights: ['Motor Protective Circuit Breakers (MPCB)', 'Contactors & Relays', 'Switch Disconnectors', 'Industrial MCBs']
-  },
-  {
-    id: 'mennekes',
-    name: 'MENNEKES',
-    category: 'Industrial Plugs & Sockets',
-    description: 'MENNEKES is a leading manufacturer of industrial plugs and sockets for various applications.',
-    highlights: ['CEE Plugs & Sockets', 'Receptacle Combinations', 'Switched Interlocked Sockets', 'Harsh Environment IP67']
-  },
-  {
-    id: 'hager',
-    name: 'HAGER',
-    category: 'Electrical Installations',
-    description: 'Hager is the specialist for electrical installations in residential and commercial sectors.',
-    highlights: ['Power Distribution Boards', 'Modular Protection Devices', 'Enclosure Systems', 'Commercial Switchgear']
-  },
-  {
-    id: 'luker',
-    name: 'LUKER',
-    category: 'LED Lighting Solutions',
-    description: 'Manufactures cost effective LED solutions in India for domestic and commercial needs.',
-    highlights: ['Commercial LED Panels', 'Industrial High-Bay Lights', 'Downlights & Troffers', 'Retrofit Energy Savers']
-  },
-  {
-    id: 'neptune',
-    name: 'NEPTUNE INDIA',
-    category: 'Power & Energy Solutions',
-    description: 'Neptune India offers global products and solutions in the field of Power & Energy based on latest technology.',
-    highlights: ['Power Factor Correction', 'Harmonic Filters', 'Energy Meters', 'Industrial Plugs & Sockets']
-  },
-  {
-    id: 'havells',
-    name: 'HAVELLS',
-    category: 'Cables & Commercial Lighting',
-    description: 'India’s renowned manufacturer of industrial cables, commercial LED fixtures, and domestic building wires.',
-    highlights: ['Industrial Power Cables', 'Commercial LED Troffers', 'Flame Retardant House Wires', 'Distribution Boards']
-  },
-  {
-    id: 'jef',
-    name: 'JEF TECHNO SOLUTIONS',
-    category: 'Grounding & Lightning Safety',
-    description: 'Specialists in chemical maintenance-free electrical grounding solutions and advanced lightning arrestor systems.',
-    highlights: ['JEF ECO SAFE Earthing', 'Carbon-Based Chemical Compound', 'ESE Lightning Arrestors', 'Surge Protection Devices']
-  }
-];
-
 export interface SpecialOfferItem {
   slNo: number;
   partNo: string;
@@ -136,33 +69,7 @@ export const PRODUCTS_ON_OFFER_DATA: SpecialOfferItem[] = [
     description: 'MENNEKES 16A 5-Pin (3P+N+E) 400V IP44 CEE Industrial Plug and Socket',
     qty: '60 Sets',
     price: 890
-  },
-  {
-    slNo: 10,
-    partNo: 'SK-JEF-EARTH-ROD',
-    description: 'JEF ECO SAFE Maintenance Free Chemical Earthing Electrode with Compound',
-    qty: '30 Sets',
-    price: 3600
   }
-];
-
-export const AUTHORIZED_PRINCIPALS = [
-  'LAPP INDIA PVT LTD',
-  'EATON Power Quality Pvt Ltd',
-  'HAVELLS INDIA LTD',
-  'JEF Techno solutions Pvt Ltd',
-  'HAGER Electro Private Limited',
-  'LUKER Electric Technologies Pvt Ltd',
-  'MENNEKES Electric India Pvt Ltd',
-  'NEPTUNE INDIA LTD'
-];
-
-export const CORE_PILLARS = [
-  'Technically, commercially skilled dedicated team.',
-  '25 years of presence across industry verticals.',
-  'Customer specific and well-planned inventory added with reliable large network for better service.',
-  'Complete statutory compliance for hassle free transaction',
-  'Ethical business practice.'
 ];
 
 export const INDUSTRIES_LIST = [
